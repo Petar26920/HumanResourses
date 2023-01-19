@@ -18,6 +18,48 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <!-- custom css -->
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body
+{
+    background-color: #ff4d4d;
+    overflow: hidden;
+}
+ul{
+    
+    margin-block-end: 1em;
+}
+li:first-child
+{
+    margin-top: 6vh;
+}
+li{
+
+    margin:5px;
+}
+main
+{
+    background-color: white;
+    border-top-left-radius: 3em;
+    padding: 0;
+}
+i{
+    color: white;
+    font-size: 20px;
+}
+#naslov
+{
+    border-bottom: 1px solid black;
+    
+}
+#praznoPoredNaslova
+{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+nav{
+    max-width: 4vw;
+}
+    </style>
 </head>
 
 <body>

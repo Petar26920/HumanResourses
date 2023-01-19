@@ -21,4 +21,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/userManagmentPage', function () {
+    return view('userManagmentPage');
+});
 
