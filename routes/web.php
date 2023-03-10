@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/userManagmentPage', function () {
+    
+    return view('userManagmentPage');
+
+})->middleware('auth');
+
 Route::get('/login', function () {
     return view('login');
-});
-
-
+})->name('login');
