@@ -1,158 +1,280 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style> 
-.username-label {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #c83a47;
-}
+  <style>
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.username-input {
-    border: #c1e4bc;
-    border-bottom: 2px solid rgba(193,228,188,255);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: left;
-    padding-top: 10px;
-    width: 350px;
-    height: 20px;
+    .row {
+      margin-top: 9%;
+      display: inline-block;
+      text-align: center;
 
-}
-.password-label {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #c83a47;
-}
+    }
 
-.password-input {
-    border: #c1e4bc;
-    border-bottom: 2px solid rgba(193,228,188,255);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: left;
-    padding-top: 10px;
-    width: 350px;
-    height: 20px;
-}
-.login-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    
-}
-.input-box:hover,
-.input-box:active {
-    border: 2px solid rgba(193,228,188,255);
-}
-.heading {
-    color: rgba(200,58,71,255);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 120px;
+    .heading {
+      color: rgba(200, 58, 71, 255);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin-left: 120px;
 
-}
-.my-iv{
-    background-color: whitesmoke;
-}
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  border-radius: 10rem;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.15rem;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-.button:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #e62429;
-  border-radius: 10rem;
-  z-index: -2;
-}
-.button:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #e77478;
-  transition: all 0.3s;
-  border-radius: 10rem;
-  z-index: -1;
-}
-.button:hover {
-  color: #fff;
-}
-.button:hover:before {
-  width: 100%;
-}
+    }
 
-/* optional reset for presentation */
-* {
-  font-family: Arial;
-  text-decoration: none;
-  font-size: 20px;
-}
+    .my-iv {
+      background-color: white;
+      zoom: 105%;
 
-.zz {
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-}
+    }
+
+    .logopozicija {
+      margin-bottom: 30px;
+    }
+
+    .unospozicija {
+
+      display: inline-block;
+      text-align: left;
+    }
 
 
-/* optional reset for presentation */
-* {
-  font-family: Arial;
-  text-decoration: none;
-  font-size: 20px;
-}
-.zz {
-  padding-top: 50px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-}
+    .username-label {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: #454545;
+      font-size: 15px;
+
+    }
+
+    .password-label {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: #454545;
+      font-size: 15px;
+    }
+
+    .username-input {
+      border-color: #c1e4bc;
+      border: none;
+      border-bottom: 3px solid lightcoral;
+      font-size: 15px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: left;
+      padding-top: 5px;
+      width: 300px;
+      height: 20px;
+
+    }
+
+    .password-input {
+      border-color: #c1e4bc;
+      border: none;
+      border-bottom: 3px solid lightcoral;
+      font-size: 15px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: left;
+      padding-top: 5px;
+      width: 300px;
+      height: 20px;
+      max-width: 350px;
+      max-height: 20px;
+    }
+
+    .username-input:hover,
+    .username-input:focus,
+    .password-input:hover,
+    .password-input:focus {
+
+      border-color: red;
+    }
 
 
 
-</style>
+    /* Dugme */
+    .button {
+      display: inline-block;
+      padding-top: 3%;
+      padding-bottom: 8%;
+      padding-left: 8%;
+      padding-right: 8%;
+      border-radius: 10rem;
+      color: #fff;
+      max-height: 10px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      border: none;
+    }
+
+    .button:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #e62429;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+
+    .button:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #e77478;
+      transition: all 0.3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+
+    .button:hover {
+      color: #fff;
+    }
+
+    .button:hover:before {
+      width: 100%;
+    }
+    .dugmepozicija {
+      padding-top: 50px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+      margin-top: -15px;
+    }
+
+    /* Zaboravljena sifra */
+    .zaboravljenasifra {
+      font-size: 12px;
+      text-align: right;
+      color: black;
+      margin-top: 5px;
+    }
+
+    /* Donje leve linije */
+    .line {
+      position: fixed;
+      left: 0;
+      top: 90%;
+      height: 18px;
+      width: 35%;
+      background-color: #c42426;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .line::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -36px;
+      height: 18px;
+      width: 90%;
+      background-color: #c42426;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .line::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -72px;
+      height: 18px;
+      width: 70%;
+      background-color: #c42426;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    /* Gornje desne linije */
+    .line2 {
+      position: fixed;
+      right: 0;
+      top: 5%;
+      height: 18px;
+      width: 35%;
+      background-color: #c42426;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .line2::before {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 36px;
+      height: 18px;
+      width: 90%;
+      background-color: #c42426;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .line2::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 72px;
+      height: 18px;
+      width: 70%;
+      background-color: #c42426;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+  </style>
 </head>
 
 <body class="my-iv">
-<div class="login-container">
+  <div class="login-container">
     <!-- login elements go here -->
     <div class="row">
-    <img src="Images/logo-link.png" alt="image description" width="260">
-
-    <h1 class="heading">Log in</h1>
-    <div >
+      <div class="logopozicija">
         <section>
-        <label for="username" class="username-label"><strong>Username</strong></label><br>
-        <input type="text" id="username" name="username" class="username-input input-box"><br>
-    </section>
-    <section>
-        <br><br><label for="password" class="password-label"><strong>Password</strong></label><br>
-        <input type="password" id="password" name="password" class="password-input input-box">
-    </section>
-    </div>
-    
-    </div>
-    <div class="zz">  
-        <a href="#" class="button">Log in</a>
-    </div>  
+          <img src="Images/logo-link.png" alt="image description" width="220">
+        </section>
+      </div>
+
+      <div class="unospozicija">
+        <section>
+          <label for="username" class="username-label"><strong>Username</strong></label><br>
+          <input type="text" id="username" name="username" class="username-input input-box"><br>
+        </section>
+
+        <section>
+          <br><br><label for="password" class="password-label"><strong>Password</strong></label><br>
+          <input type="password" id="password" name="password" class="password-input input-box">
+        </section>
+
+        <section class="zaboravljenasifra">
+          <a href="#">Forgot password?</a>
+        </section>
+
+
+        <div class="dugmepozicija">
+          <!-- <a href="/" class="button">Log in</a> -->
+          <button type="submit" class="button">Log in</button>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="line2"></div>
+
 
 
 
 
 
 </body>
+
 </html>
