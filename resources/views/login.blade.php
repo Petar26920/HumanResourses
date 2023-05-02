@@ -10,7 +10,7 @@
     }
 
     .row {
-      margin-top: 9%;
+      margin-top: 11%;
       display: inline-block;
       text-align: center;
 
