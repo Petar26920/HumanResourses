@@ -44,6 +44,7 @@
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       color: #454545;
       font-size: 15px;
+      
 
     }
 
@@ -56,20 +57,21 @@
     .username-input {
       border-color: #c1e4bc;
       border: none;
-      border-bottom: 3px solid lightcoral;
+      border-bottom: 3px solid #c42326;
       font-size: 15px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       text-align: left;
       padding-top: 5px;
       width: 300px;
       height: 20px;
+      
 
     }
 
     .password-input {
       border-color: #c1e4bc;
       border: none;
-      border-bottom: 3px solid lightcoral;
+      border-bottom: 3px solid #c42326;
       font-size: 15px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       text-align: left;
@@ -85,7 +87,7 @@
     .password-input:hover,
     .password-input:focus {
 
-      border-color: red;
+      border-color: lightcoral;
     }
 
 
@@ -107,6 +109,7 @@
       overflow: hidden;
       z-index: 1;
       border: none;
+      
     }
 
     .button:after {
@@ -116,7 +119,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #e62429;
+      background-color: #c42326;
       border-radius: 10rem;
       z-index: -2;
     }
@@ -128,9 +131,9 @@
       left: 0;
       width: 0%;
       height: 100%;
-      background-color: #e77478;
+      background-color: #e62429;
       transition: all 0.3s;
-      border-radius: 10rem;
+      border-radius: 10rem; 
       z-index: -1;
     }
 
@@ -146,7 +149,7 @@
       margin: 0 auto;
       width: 100%;
       text-align: center;
-      margin-top: -15px;
+      margin-top: -30px;
     }
 
     /* Zaboravljena sifra */
@@ -232,6 +235,9 @@
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
     }
+    .usernameee{
+      margin-bottom: -10px;
+    }
   </style>
 </head>
 
@@ -246,7 +252,7 @@
       </div>
 
       <div class="unospozicija">
-        <section>
+        <section class="usernameee">
           <label for="username" class="username-label"><strong>Username</strong></label><br>
           <input type="text" id="username" name="username" class="username-input input-box"><br>
         </section>
@@ -271,6 +277,8 @@
         <div class="line2"></div>
 
 
+
+        
 
 
 
