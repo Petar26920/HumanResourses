@@ -3,6 +3,12 @@
 
 <head>
   <style>
+
+    @font-face{
+      font-family:'CreatoDisplay';
+      src: url('/resources/fontovi/CreatoDisplay-Regular.otf');
+    }
+
     .login-container {
       display: flex;
       align-items: center;
@@ -18,7 +24,7 @@
 
     .heading {
       color: rgba(200, 58, 71, 255);
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: 'CreatoDisplay';
       margin-left: 120px;
 
     }
@@ -41,7 +47,7 @@
 
 
     .username-label {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: 'CreatoDisplay';
       color: #454545;
       font-size: 15px;
       
@@ -49,7 +55,7 @@
     }
 
     .password-label {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: 'CreatoDisplay';
       color: #454545;
       font-size: 15px;
     }
