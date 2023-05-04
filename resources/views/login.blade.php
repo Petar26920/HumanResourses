@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
 
   <link rel="stylesheet" href="{{ asset('css/login.css') }}">
   <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
+
 </head>
 
 <body class="my-iv">
