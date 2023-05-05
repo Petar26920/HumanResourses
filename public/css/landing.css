@@ -1,101 +1,160 @@
-
-body {
-    margin: 0;
-    padding: 0;
-}
-/* Gradient background */
-.bg-gradient {
-    background: linear-gradient(to top, #cf414b, #e45756, #fc6c61, #fe6b5b, #f76150, #f55e4d); /* Specify colors from bottom to top */
-    height: 100vh;
-    width: 100%;
+@font-face {   
+	font-family: myFirstFont;   
+	src: url(/public/fonts/super.ttf); 
 }
 
-
-.Text {
-    margin-top: 300px;
+*{
+	font-family: 'Creato Display',Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
 /* Logo */
-.center-content img {
-    margin-top: 100px;
-    margin-left: 550px;
+.center-content {
+    margin-top: 170px;  
+}
+img{
+	height: 45%;
+	width: 45%;	
+	margin-left: 300px;	
 }
 
+/* Button */
+.button {
+    display: inline-block;
+    padding-top: 0.5%;
+    padding-bottom: 3%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    border-radius: 15rem;
+    color: #fff;
+    max-height: 10px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: none;
+	font-weight: 700;
+	margin: auto;
+	
+  }
 
+  .button:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c42326;
+    border-radius: 10rem;
+    z-index: -2;
+  }
 
-/* Soft line */
-.soft-line {
-    width: 18%; /* Adjust the width as desired */
-    margin: 30px auto 0; /* Add some margin to the top and center the line */
-    border: 0;
-    height: 10px;
-    background-color: white; /* Change the background color to white */
-    border-radius: 10px;
-}
+  .button:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #e62429;
+    transition: all 0.3s;
+    border-radius: 10rem; 
+    z-index: -1;
+  }
 
-/* BUTTON*//* BUTTON *//* BUTTON *//* BUTTON */
+  .button:hover {
+    color: #fff;
+  }
 
-div[class*=box] {
-	height: 33.33%;
-	width: 100%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .button:hover:before {
+    width: 100%;
+  }
+  .dugmepozicija {
+    padding-top: 100px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
+  /* Donje leve linije */
+  .line {
+    position: fixed;
+    left: 0;
+    top: 90%;
+    height: 18px;
+    width: 35%;
+    background-color: #c42426;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 
+  .line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -36px;
+    height: 18px;
+    width: 90%;
+    background-color: #c42426;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 
+  .line::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -72px;
+    height: 18px;
+    width: 70%;
+    background-color: #c42426;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 
-.btn {
-	line-height: 50px;
-	height: 50px;
-	text-align: center;
-	width: 250px;
-	cursor: pointer;
-}
+  /* Gornje desne linije */
+  .line2 {
+    position: fixed;
+    right: 0;
+    top: 5%;
+    height: 18px;
+    width: 35%;
+    background-color: #c42426;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
 
+  .line2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 36px;
+    height: 18px;
+    width: 90%;
+    background-color: #c42426;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
 
-/* 
-========================
-      BUTTON 
-========================
-*/
-.btn-three {
-	color: #FFF;
-	transition: all 0.5s;
-	position: relative;
-}
-.btn-three::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	opacity: 0;
-	transition: all 0.3s;
-	border: 1px solid rgba(255,255,255,1.5);
-	transform: scale(1.2,1.2);
-}
-.btn-three:hover::before {
-	opacity: 1;
-	transform: scale(1,1);
-}
-.btn-three::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	background-color: rgba(255,255,255,0.2);
-	transition: all 0.3s;
-}
-.btn-three:hover::after {
-	opacity: 0 ;
-	transform: scale(0.5,0.5);
-}
-
+  .line2::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 72px;
+    height: 18px;
+    width: 70%;
+    background-color: #c42426;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
