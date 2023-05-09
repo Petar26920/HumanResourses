@@ -1,0 +1,107 @@
+
+h1{
+    color:#333333;
+    font-size: 68px;
+}
+body
+{
+    /* background-color: #ff4d4d; */
+    overflow: hidden;
+}
+ul{
+    
+    margin-block-end: 1em;
+}
+li:first-child
+{
+    margin-top: 12vh;
+}
+li{
+
+    margin:5px;
+    margin-top: 30px;
+}
+main
+{
+    background-color: white;
+    padding-right: 3em;
+}
+i{
+    color: white;
+    font-size: 20px;
+}
+
+nav{
+    background-color: #c42326;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    max-width: 10vw;
+    width:100%;
+}
+.crvena{
+    background-color: #c42326 ;
+    color: #ffffff;
+}
+.siva
+{
+    background-color: #b3b3b3;
+    color: #ffffff;
+}
+.crna{
+    background-color: #333333;
+    color: #ffffff;
+}
+table>thead>tr>th:first-child{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+table>thead>tr>th:last-child{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#table_id>tbody>tr{
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.dataTables_filter input {
+    color: black;
+    background-color: black; 
+    border-width: 0px 0px 3px 0px !important;
+    border-color: black;
+  }
+  .dataTables_filter{
+    margin-bottom: 10px;
+  }
+  
+  #table_id{
+    border: 0px;
+  }
+  #table_id tbody tr.even {
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    border: 10px solid black;
+}
+
+#table_id tbody tr.odd {
+    background-color:#fafafa;
+}  
+#addButton{
+    background-color: #c42326;
+    border: 0px;
+    border-radius: 10px;
+}
+
+#naslov{
+    font-size: 35pt;
+}
+button img{
+    width: 100%;
+    height: 100%;
+}
+li button{
+    max-width: 80px;
+    max-width:60px;
+}
