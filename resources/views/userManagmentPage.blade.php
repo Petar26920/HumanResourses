@@ -180,17 +180,17 @@
                             </table>
                             <!-- MY BUTTON -->
                             <!-- Button trigger modal -->
-                            <button type="button" id="addButton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" id="addButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                 Add new user
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal moj fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Add new user</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <h5 class="modal-title" id="myModalLabel">Add new user</h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -260,6 +260,7 @@
                 }]
             });
         });
+
     </script>
 </body>
 
