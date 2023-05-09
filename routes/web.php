@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< Updated upstream
-use Illuminate\Support\Facades\Auth;
-=======
 use App\Http\Controllers\ProfileController;
->>>>>>> Stashed changes
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,17 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< Updated upstream
-Route::get('/userManagmentPage', function () {
-    
-    return view('userManagmentPage');
-
-})->middleware('auth');
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-=======
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -48,4 +33,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
->>>>>>> Stashed changes

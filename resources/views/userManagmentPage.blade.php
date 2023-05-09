@@ -18,8 +18,6 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
     <!-- custom css -->
     <link rel="stylesheet" href="css/styles.css">
-<<<<<<< Updated upstream
-=======
     <!-- <style>
         body {
             background-color: #ff4d4d;
@@ -63,7 +61,6 @@
           width: 25%;
         }
     </style> -->
->>>>>>> Stashed changes
 </head>
 
 <body>
@@ -95,11 +92,7 @@
                 </div>
             </nav>
             <!-- style="width: 96vw;" style sam dodao da bih mogao da promenim sirinu kolone sa leve i desne zato sto col-sm-1 nije bilo dovoljno malo a row zahteva da ima col -->
-<<<<<<< Updated upstream
-            <main class="p-0 w-100 bd-highlight " >
-=======
             <main class="pt-3 w-100 bd-highlight ">
->>>>>>> Stashed changes
                 <div class="d-flex bd-highlight">
                     <div class="p-3 flex-shrink-1 bd-highlight" id="praznoPoredNaslova">
                         
@@ -185,8 +178,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-<<<<<<< Updated upstream
-=======
                             <!-- MY BUTTON -->
                             <!-- Button trigger modal -->
                             <button type="button" id="addButton" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -253,7 +244,6 @@
 
 
 
->>>>>>> Stashed changes
                         </div>
 
                     </div>
