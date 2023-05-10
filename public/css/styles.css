@@ -109,12 +109,72 @@ li button{
 
 /* Modal stil */
 .modal{
-    margin-top: 10%;
+    margin-top: 2vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    
 }
-.modal input{
-    margin: 10px 0;
+.modal-content{
+    border-radius: 20px;
+    width: 655px;
+    font-size: 21px;
+}
+.modal-header{
+    background-color: #c42326;
+    color: #ffffff;
+    
+    font-weight: bold;
+    height: 82px;
+    border-radius: 20px 20px 0px 0px;
+    
+}
+.modal-header h6{
+    font-size: 23px;
+    padding: 0 10px 0 70px;
+}
+.modal-body{
+    padding: 50px 70px;
+}
+
+.modal input,.modal select{
+    margin-bottom: 10px;
+}
+input[name=password]{
+    margin-bottom:25px;
+}
+.dugmici{
+    float:right;
+    font-size: 21px;
+    
+}
+.cancel{
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    margin-left:-10px;
+    margin-right: 10px;
+}
+button[type=submit]{
+    background-color: #c42326;
+    font-weight: bold;
+    border-radius: 14px;
 }
 .modal button:hover{
     background-color: #a01315;
     color: #ffffff; 
+}
+
+.formNewUser{
+    display: inline-grid;
+    width:100%;
+}
+.container{
+    padding:0;    
+}
+.centriranje{
+    width:100%;
+    margin:auto;
+}
+.row{
+    margin-right: 0;
+    padding:0;
 }

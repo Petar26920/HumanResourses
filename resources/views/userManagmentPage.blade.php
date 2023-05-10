@@ -150,43 +150,60 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="myModalLabel">Add new user</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
+                                            <h6 class="modal-title" id="myModalLabel">Add new user</h6>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="font-size:12px; padding:0;">
+                                                <h3 aria-hidden="true" >&times;</h3>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="container center">
+                                            <div class="container center centriranje">
                                                 <!-- Smisliti bolje resenje za ovo -->
                                                 <div class="row" style="justify-content: center; width:100%;">
-                                                    <div class="col-m-6">
+                                                    <div class="col-m-12">
                                                         <div class="tile">
                                                             <div class="login show">
                                                                 <form>
-                                                                    <div class="form-group">
-                                                                        <input type="text" name="fName" class="form-control" placeholder="First name" required>
-                                                                    </div><!-- group -->
-                                                                    <div class="form-group">
-                                                                        <input type="text" name="lName" class="form-control" placeholder="Last name" required>
-                                                                    </div><!-- group -->
-                                                                    <div class="form-group">
-                                                                        <input type="email" class="form-control" placeholder="Email" required>
-                                                                    </div><!-- group -->
-                                                                    <div class="form-group">
-                                                                        <select name="Role" class="form-control" id="idRole">
-                                                                            <option value="admin">Admin</option>
-                                                                            <option value="user">User</option>
-                                                                        </select>
-                                                                    </div><!-- group -->
-                                                                    <div class="form-group">
-                                                                        <input type="text" class="form-control" placeholder="Phone number" required>
-                                                                    </div><!-- group -->
-                                                                    <div class="form-group">
-                                                                        <input type="password" class="form-control" placeholder="Password" required>
-                                                                    </div><!-- group -->
-                                                                    <!-- USER: Fname,Lname,Email,Role,PhoneNumber,Pass -->
-
-                                                                    <button type="submit" class="btn btn-info btn-block">Create new user</button>
+                                                                    <div class="formNewUser">
+                                                                        <div class="row">
+                                                                            <div class="form-group col-md-6">
+                                                                                <label for="fName">First name</label>
+                                                                                <input type="text" name="fName" class="form-control" required>
+                                                                            </div><!-- group -->
+                                                                            <div class="form-group col-md-6">
+                                                                                <label for="lName">Last name</label>
+                                                                                <input type="text" name="lName" class="form-control" required>
+                                                                            </div><!-- group -->
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="form-group col-md-6">
+                                                                                <label for="phone">Phone number</label>
+                                                                                <input type="text" name="phone" class="form-control" required>
+                                                                            </div><!-- group -->
+                                                                            <div class="form-group col-md-6">
+                                                                                <label for="Email">Email</label>
+                                                                                <input type="email" name="Email" class="form-control" required>
+                                                                            </div><!-- group -->
+                                                                        </div>
+                                                                        
+                                                                        <div class="form-group">
+                                                                            <label for="Role">Role</label>
+                                                                            <select name="Role" class="form-control" id="idRole">
+                                                                                <option value="admin">Admin <i class="bi bi-chevron-compact-down"></i></option>
+                                                                                <option value="user" selected>User</option>
+                                                                            </select>
+                                                                        </div><!-- group -->
+                                                                        
+                                                                        <div class="form-group">
+                                                                            <label for="password">Password</label>
+                                                                            <input type="password" name="password" class="form-control" required>
+                                                                        </div><!-- group -->
+                                                                        <!-- USER: Fname,Lname,Email,Role,PhoneNumber,Pass -->
+                                                                            <div class="row dugmici">
+                                                                                <div class="col-md-8"></div>
+                                                                                <button type="button" class="close cancel col-md-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                                                <button type="submit" name="addUser" class="btn btn-info btn-block col-md-2">Add</button>
+                                                                            </div>
+                                                                        </div>
                                                                 </form>
                                                             </div><!-- login -->
                                                         </div><!-- tile -->
