@@ -26,7 +26,7 @@
         <div class="d-flex bd-highlight">
             <!-- style="width: 4vw;" style sam dodao da bih mogao da promenim sirinu kolone sa leve i desne zato sto col-sm-1 nije bilo dovoljno malo a row zahteva da ima col -->
 
-            <nav class="p-1 flex-shrink-1 bd-highlight" >
+            <nav class="p-1 flex-shrink-1 bd-highlight">
                 <div class="d-flex flex-column " style="height: 100vh; ">
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center" style="margin-top: 5vh;">
                         <li class="nav-item">
@@ -50,10 +50,11 @@
                 </div>
             </nav>
             <!-- style="width: 96vw;" style sam dodao da bih mogao da promenim sirinu kolone sa leve i desne zato sto col-sm-1 nije bilo dovoljno malo a row zahteva da ima col -->
+
             <main class="pt-3 w-100 bd-highlight ">
                 <div class="d-flex bd-highlight">
                     <div class="p-3 flex-shrink-1 bd-highlight" id="praznoPoredNaslova">
-                        
+
                     </div>
                     <div class=" w-100 bd-highlight">
                         <div class="row">
@@ -69,7 +70,7 @@
                 </div>
                 <div class="d-flex bd-highlight h-100">
                     <div class="p-3 flex-shrink-1 bd-highlight " id="praznoPoredNaslova">
-                        
+
                     </div>
                     <div class="p-2 w-100 bd-highlight">
                         <!-- Ovo treba da bude data tables al ne moze previse da se customizuje tako da sam morao rucno da bi izgledalo kao na slici -->
@@ -139,10 +140,12 @@
                             <!-- MY BUTTON -->
                             <!-- Button trigger modal -->
                             <button type="button" id="addButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+
                                 Add new user
                             </button>
 
                             <!-- Modal -->
+
                             <div class="modal moj fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -220,6 +223,10 @@
         });
 
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
