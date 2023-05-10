@@ -18,6 +18,10 @@ Route::get('/userManagment', function () {
     return view('userManagmentPage');
 });
 
+Route::get('/navLajout', function () {
+    return view('proba');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
