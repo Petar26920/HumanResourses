@@ -88,8 +88,9 @@ table>thead>tr>th:last-child{
 #table_id tbody tr.odd {
     background-color:#fafafa;
 }  
-#addButton{
+#addButton, .modal button{
     background-color: #c42326;
+    color: #ffffff;
     border: 0px;
     border-radius: 10px;
 }
@@ -104,4 +105,16 @@ button img{
 li button{
     max-width: 80px;
     max-width:60px;
+}
+
+/* Modal stil */
+.modal{
+    margin-top: 10%;
+}
+.modal input{
+    margin: 10px 0;
+}
+.modal button:hover{
+    background-color: #a01315;
+    color: #ffffff; 
 }
