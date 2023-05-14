@@ -25,3 +25,11 @@ Route::get('/userManagmentPage', function () {
     return view('userManagmentPage');
 });
 
+Route::get('/client', function () {
+    return view('client');
+});
+
+
+
+
+
