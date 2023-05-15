@@ -12,42 +12,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script>
         const initApp = () => {
-    const droparea = document.querySelector('.droparea');
+            const droparea = document.querySelector('.droparea');
+            const filenameDisplay = document.querySelector('#filename-display');
 
-    const active = () => droparea.classList.add("green-border");
+            const active = () => droparea.classList.add("green-border");
+            const inactive = () => droparea.classList.remove("green-border");
+            const prevents = (e) => e.preventDefault();
 
-    const inactive = () => droparea.classList.remove("green-border");
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evtName => {
+                droparea.addEventListener(evtName, prevents);
+            });
 
-    const prevents = (e) => e.preventDefault();
+            ['dragenter', 'dragover'].forEach(evtName => {
+                droparea.addEventListener(evtName, active);
+            });
 
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evtName => {
-        droparea.addEventListener(evtName, prevents);
-    });
+            ['dragleave', 'drop'].forEach(evtName => {
+                droparea.addEventListener(evtName, inactive);
+            });
 
-    ['dragenter', 'dragover'].forEach(evtName => {
-        droparea.addEventListener(evtName, active);
-    });
+            droparea.addEventListener("drop", handleDrop);
 
-    ['dragleave', 'drop'].forEach(evtName => {
-        droparea.addEventListener(evtName, inactive);
-    });
+            let dropZone = document.getElementById("drop-zone");
+            let counter = 0;
 
-    droparea.addEventListener("drop", handleDrop);
+            dropZone.addEventListener("drop", handleDrop, false);
 
-}
+            function handleDrop(e) {
+                e.preventDefault();
+                let file = e.dataTransfer.files[0];
+                let fileName = file.name;
 
-document.addEventListener("DOMContentLoaded", initApp);
+                counter++;
+                let labelId = "filename-display";
+                if (counter === 2) {
+                    labelId = "filename-display-2";
+                } else if (counter === 3) {
+                    labelId = "filename-display-3";
+                }
 
-const handleDrop = (e) => {
-    const dt = e.dataTransfer;
-    const files = dt.files;
-    const fileArray = [...files];
-    console.log(files); // FileList
-    console.log(fileArray);
-}
+                let label = document.getElementById(labelId);
+                label.innerHTML = fileName;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", initApp);
     </script>
     <script src="https://kit.fontawesome.com/9b8c178a4c.js" crossorigin="anonymous"></script>
-    </head>
+
+    <script>
+function displayFileNames() {
+    var input = document.getElementById('fileInput');
+    var files = input.files;
+    var label1 = document.getElementById('filename-display');
+    var label2 = document.getElementById('filename-display-2');
+    var label3 = document.getElementById('filename-display-3');
+    if (files.length > 0) {
+        label1.innerText = files[0].name;
+        if (files.length > 1) {
+            label2.innerText = files[1].name;
+            if (files.length > 2) {
+                label3.innerText = files[2].name;
+            } else {
+                label3.innerText = "";
+            }
+        } else {
+            label2.innerText = "";
+            label3.innerText = "";
+        }
+    } else {
+        label1.innerText = "";
+        label2.innerText = "";
+        label3.innerText = "";
+    }
+}
+</script>
+</head>
+
 <body>
     <div class="container">
         <div class="okvir">
@@ -91,43 +132,45 @@ const handleDrop = (e) => {
                                     <i class="fa-solid fa-cloud-arrow-down fa-lg" style="color: #c42426;"></i>
                                     <label>Drag and drop or</label>
                                     <a href="#" style="color: #c42426;" onclick="document.getElementById('fileInput').click(); return false;">browse files</a>
-                                    <input type="file" id="fileInput" style="display:none">
+                                    <input type="file" id="fileInput" name="file[]" style="display: none;" multiple onchange="displayFileNames()">
                                 </section>
                             </div>
                         </div>
 
-                        <!-- upload info -->
-                        <div class="filename">
-                            <div class="column1">
-                                <!-- file info -->
-                                 <i class="fa-regular fa-file fa-flip-vertical" style="color: #000000;"></i>
-                                <label>filename</label> 
+                        <div id="drop-zone">
+                            <!-- upload info -->
+                            <div class="filename">
+                                <div class="column1">
+                                    <!-- file info -->
+                                    <i class="fa-regular fa-file fa-flip-vertical" style="color: #000000;"></i>
+                                    <label id="filename-display"></label>
+                                </div>
+                                <div class="column2">
+                                    <!-- progressbar -->
+                                    <label>progressbar</label>
+                                </div>
                             </div>
-                            <div class="column2">
-                                <!-- progressbar -->
-                                 <label>progressbar</label> 
+                            <div class="filename">
+                                <div class="column1">
+                                    <!-- file info -->
+                                    <i class="fa-regular fa-file fa-flip-vertical" style="color: #000000;"></i>
+                                    <label id="filename-display-2"></label>
+                                </div>
+                                <div class="column2">
+                                    <!-- progressbar -->
+                                    <label>progressbar</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="filename">
-                            <div class="column1">
-                                <!-- file info -->
-                                <i class="fa-regular fa-file fa-flip-vertical" style="color: #000000;"></i>
-                                <label>filename</label>
-                            </div>
-                            <div class="column2">
-                                <!-- progressbar -->
-                                <label>progressbar</label>
-                            </div>
-                        </div>
-                        <div class="filename">
-                            <div class="column1">
-                                <!-- file info -->
-                                <i class="fa-regular fa-file fa-flip-vertical" style="color: #000000;"></i>
-                                <label>filename</label>
-                            </div>
-                            <div class="column2">
-                                <!-- progressbar -->
-                                <label>progressbar</label>
+                            <div class="filename">
+                                <div class="column1">
+                                    <!-- file info -->
+                                    <i class="fa-regular fa-file fa-flip-vertical" style="color: #000000;"></i>
+                                    <label id="filename-display-3"></label>
+                                </div>
+                                <div class="column2">
+                                    <!-- progressbar -->
+                                    <label>progressbar</label>
+                                </div>
                             </div>
                         </div>
                         <div class="line2"></div>
