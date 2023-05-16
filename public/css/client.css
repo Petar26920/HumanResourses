@@ -1,0 +1,264 @@
+@import "fonts";
+@font-face {   
+  font-family: myFirstFont;   
+  src: url(/public/fonts/super.ttf); }
+
+*{
+  font-family: 'Creato Display',Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+.container{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.okvir{
+    background-color: #f2f2f2;
+    box-shadow: 5px 5px 10px rgba(125,125,125,0.3);
+    border-radius: 3em;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-top: 9%;
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    height: 302px;
+    max-height: 302px;
+    max-width: 800px;
+}
+.okvirinfo{
+    padding: 5%;
+    order: 2;
+    flex-basis: 85%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 65px;
+    max-width: 624px;
+    max-height: 292px;
+}
+.okvirslika{
+    padding: 5%;
+    order: 1;
+    flex-basis: 12%;
+    position: relative;
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    color: #c42226;
+    font: weight 900px;
+}
+
+.pic{
+    padding: 5%;
+    position:absolute;
+    /* pozicioniranje slike */
+     top: -33px;
+    left: -90px;
+    right: 60px; 
+    bottom: 140px;
+    border-radius: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 167px;
+    max-height: 173px;
+    z-index: 2;
+}
+
+.okvirCV{
+    border-top: solid #ce5556;
+    border-width: 2px;    
+    order: 2;
+    flex-basis: 50%; 
+    max-width: 270px;
+    max-height: 185px;
+    margin-right: 21px;
+}
+.CVpodaci{
+  margin-left: 5px;
+}
+
+.cvheader{
+  font-weight: bold; 
+  color: #333333;
+  text-align: center; 
+}
+
+.okvirpodaci{
+    border-top: solid #ce5556;
+    border-width: 2px;
+    padding-top: 0px;
+    order: 1;
+    flex-basis: 50%;
+    max-width: 270px;
+    max-height: 185px;   
+}
+.radnikpodaci{
+    font-weight: bold;
+    color: #333333;
+    margin-top: 9px;
+    margin-bottom: 16px;
+    font-size: large;
+    max-width: 271px;
+    max-height: 21px;
+}
+
+/* Lines↓*/
+.line2 {
+    position: fixed;
+    right: 0;
+    top: 90%;
+    height: 18px;   
+    width: 35%;
+    background-color: #c42426;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .line2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -36px;
+    height: 18px;
+    width: 90%;
+    background-color: #c42426;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .line2::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -72px;
+    height: 18px;
+    width: 70%;
+    background-color: #c42426;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; 
+  }
+/* Drag and drop↓ */
+.dropcontainer {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: none;
+}
+.dropinfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.droparea {
+    width: 273px; 
+    height: 60px;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23C42326FF' stroke-width='4' stroke-dasharray='9' stroke-dashoffset='17' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    font-size: small;
+    max-width: 273px; 
+    max-height: 60px;
+} 
+/* Shape for file-upload */
+.filename{
+  background-color: white;
+  border: solid black;
+  border-radius: 7px;
+  border-width: 0.5px;
+  margin-top: 10px;
+  padding: 3px;
+  font-size: small;
+  display: flex;
+  justify-content: space-between;
+  height: 17px;
+  max-width: 262px;
+  max-height: 17px;
+}
+
+/* Columns for file-upload */
+.column1{
+  order: 1;
+  flex-basis: 50%;
+  padding-left: 3px;
+}
+
+.column2{
+  order: 2;
+  flex-basis: 50%;
+}
+
+/* RECTANGLE */
+.fullrectangle1{
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='%23C42326FF' stroke-width='14' stroke-dasharray='6%2c 14' stroke-dashoffset='22' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 16px;
+  background-color: #c42326;
+  padding: 30%;
+  width: 15px;
+  position:absolute;
+    /* pozicioniranje bordera */
+  top: -75px;
+  left: 20px;
+  right: 80px; 
+  bottom: 680px;
+  z-index: 1;
+}
+.fullrectangle2{
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='%23C42326FF' stroke-width='14' stroke-dasharray='6%2c 14' stroke-dashoffset='22' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 16px;
+  background-color: #c42326;
+  padding: 30%;
+  width: 15px;
+  position:absolute;
+    /* pozicioniranje bordera */
+  top: 125px;
+  left: -120px;
+  right: -80px; 
+  bottom: 90px;
+  z-index: 1;
+}
+.emptyrectancle1{
+  border: solid #c42326;
+  border-radius: 16px;
+  border-width: 1px;
+  background-color: transparent;
+  padding: 30%;
+  width: 15px;
+  /* height: 10px; */
+  position:absolute;
+  /* pozicioniranje bordera */
+  top: -60px;
+  left: 60px;
+  right: 80px; 
+  bottom: 250px;
+  z-index: 0;
+}
+.emptyrectancle2{
+  border: solid #c42326;
+  border-radius: 16px;
+  border-width: 1px;
+  background-color: transparent;
+  padding: 30%;
+  width: 15px;
+  /* height: 10px; */
+  position:absolute;
+  /* pozicioniranje bordera */
+  top: 90px;
+  left: -160px;
+  right: -100px; 
+  bottom: 100px;
+  z-index: 0;
+}

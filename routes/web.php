@@ -41,4 +41,9 @@ Route::get('/userManagmentPage', function () {
 });
 
 
+Route::get('/client', function () {
+    return view('client');
+});
+
 require __DIR__ . '/auth.php';
+
