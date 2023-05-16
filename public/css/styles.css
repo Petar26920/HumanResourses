@@ -1,6 +1,11 @@
+
+h1{
+    color:#333333;
+    font-size: 68px;
+}
 body
 {
-    background-color: #ff4d4d;
+    /* background-color: #ff4d4d; */
     overflow: hidden;
 }
 ul{
@@ -9,32 +14,167 @@ ul{
 }
 li:first-child
 {
-    margin-top: 6vh;
+    margin-top: 12vh;
+
 }
 li{
-
     margin:5px;
+    margin-top: 30px;
 }
 main
 {
     background-color: white;
-    border-top-left-radius: 3em;
-    padding: 0;
+    padding-right: 3em;
 }
 i{
     color: white;
     font-size: 20px;
 }
-#naslov
+
+nav{
+    background-color: #c42326;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    max-width: 10vw;
+    width:100%;
+}
+.crvena{
+    background-color: #c42326 ;
+    color: #ffffff;
+}
+.siva
 {
-    border-bottom: 1px solid black;
+    background-color: #b3b3b3;
+    color: #ffffff;
+}
+.crna{
+    background-color: #333333;
+    color: #ffffff;
+}
+table>thead>tr>th:first-child{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+table>thead>tr>th:last-child{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+#table_id>tbody>tr{
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.dataTables_filter input {
+    color: black;
+    background-color: black; 
+    border-width: 0px 0px 3px 0px !important;
+    border-color: black;
+  }
+  .dataTables_filter{
+    margin-bottom: 10px;
+  }
+  
+  #table_id{
+    border: 0px;
+  }
+  #table_id tbody tr.even {
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    border: 10px solid black;
+}
+
+#table_id tbody tr.odd {
+    background-color:#fafafa;
+}  
+#addButton, .modal button{
+    background-color: #c42326;
+    color: #ffffff;
+    border: 0px;
+    border-radius: 10px;
+}
+
+#naslov{
+    font-size: 35pt;
+}
+button img{
+    width: 100%;
+    height: 100%;
+}
+li button{
+    max-width: 80px;
+    max-width:60px;
+}
+
+/* Modal stil */
+.modal{
+    margin-top: 2vh;
+    overflow: hidden;
+    box-sizing: border-box;
     
 }
-#praznoPoredNaslova
-{
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+.modal-content{
+    border-radius: 20px;
+    width: 655px;
+    font-size: 21px;
 }
-nav{
-    max-width: 4vw;
+.modal-header{
+    background-color: #c42326;
+    color: #ffffff;
+    
+    font-weight: bold;
+    height: 82px;
+    border-radius: 20px 20px 0px 0px;
+    
+}
+.modal-header h6{
+    font-size: 23px;
+    padding: 0 10px 0 70px;
+}
+.modal-body{
+    padding: 50px 70px;
+}
+
+.modal input,.modal select{
+    margin-bottom: 10px;
+}
+input[name=password]{
+    margin-bottom:25px;
+}
+.dugmici{
+    float:right;
+    font-size: 21px;
+    
+}
+.cancel{
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    margin-left:-10px;
+    margin-right: 10px;
+}
+button[type=submit]{
+    background-color: #c42326;
+    font-weight: bold;
+    border-radius: 14px;
+}
+.modal button:hover{
+    background-color: #a01315;
+    color: #ffffff; 
+}
+
+.formNewUser{
+    display: inline-grid;
+    width:100%;
+}
+.container{
+    padding:0;    
+}
+.centriranje{
+    width:100%;
+    margin:auto;
+}
+.row{
+    margin-right: 0;
+    padding:0;
 }
