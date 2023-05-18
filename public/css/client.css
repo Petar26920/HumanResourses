@@ -18,135 +18,92 @@
     box-shadow: 5px 5px 10px rgba(125,125,125,0.3);
     border-radius: 3em;
     padding-top: 1%;
-    padding-bottom: 2%;
+    padding-bottom: 3%;
     padding-left: 3%;
     padding-right: 3%;
-    margin-top: 9%;
+    margin-top: 6%;
     display: flex;
     justify-content: space-between;
-    width: 800px;
-    height: 302px;
-    max-height: 302px;
-    max-width: 800px;
+    width: 820px;
+    height: 346px;
+    max-height: 346px;
+    max-width: 820px;
 }
 .okvirinfo{
     padding: 5%;
     order: 2;
-    flex-basis: 85%;
+    flex-basis: 80%;
     display: flex;
     justify-content: space-between;
     position: relative;
-    padding-top: 65px;
-    max-width: 624px;
-    max-height: 292px;
+    padding-top: 65px; 
+    
 }
-.okvirslika{
-    padding: 5%;
-    order: 1;
-    flex-basis: 12%;
-    position: relative;
+
+.okvirpodaci{
+  padding-top: 0px;
+  order: 1;
+  flex-basis: 70%;
+  
+}
+
+.radnikpodaci{
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8px;
+  font-size:17px;
+}
+
+.okvirCV{ 
+  order: 2;
+  flex-basis: 30%;
+  width: 250px;
+  max-width: 250px;
+}
+
+.cvheader{
+font-weight: bold; 
+color: #333333;
+text-align: center; 
+margin-top: 20px;
+margin-bottom: 5px;
 }
 
 h1 {
     position: absolute;
-    top: 0;
+    top: 8%;
+    padding-bottom: 4px;
     color: #c42226;
-    font: weight 900px;
+    font-size: 34px;
+    font-weight: bolder;
+    border-bottom: solid #ce5556;
+    border-width: 2px;
+    width:90%; 
+}
+
+.okvirslika{
+  padding: 5%;
+  order: 1;
+  flex-basis: 20%;
+  position: relative; 
 }
 
 .pic{
     padding: 5%;
     position:absolute;
     /* pozicioniranje slike */
-     top: -33px;
-    left: -90px;
-    right: 60px; 
-    bottom: 140px;
+     top: -20px;
+    left: -100px;
+    right: 50px; 
+    bottom: 110px;
     border-radius: 250px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 167px;
-    max-height: 173px;
+    
     z-index: 2;
 }
-
-.okvirCV{
-    border-top: solid #ce5556;
-    border-width: 2px;    
-    order: 2;
-    flex-basis: 50%; 
-    max-width: 270px;
-    max-height: 185px;
-    margin-right: 21px;
-}
-.CVpodaci{
-  margin-left: 5px;
-}
-
-.cvheader{
-  font-weight: bold; 
-  color: #333333;
-  text-align: center; 
-}
-
-.okvirpodaci{
-    border-top: solid #ce5556;
-    border-width: 2px;
-    padding-top: 0px;
-    order: 1;
-    flex-basis: 50%;
-    max-width: 270px;
-    max-height: 185px;   
-}
-.radnikpodaci{
-    font-weight: bold;
-    color: #333333;
-    margin-top: 9px;
-    margin-bottom: 16px;
-    font-size: large;
-    max-width: 271px;
-    max-height: 21px;
-}
-
-/* Lines↓*/
-.line2 {
-    position: fixed;
-    right: 0;
-    top: 90%;
-    height: 18px;   
-    width: 35%;
-    background-color: #c42426;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-
-  .line2::before {
-    content: "";
-    display: block;
-    position: absolute;
-    right: 0;
-    top: -36px;
-    height: 18px;
-    width: 90%;
-    background-color: #c42426;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
-
-  .line2::after {
-    content: "";
-    display: block;
-    position: absolute;
-    right: 0;
-    top: -72px;
-    height: 18px;
-    width: 70%;
-    background-color: #c42426;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px; 
-  }
 /* Drag and drop↓ */
 .dropcontainer {
     background-color: transparent;
@@ -161,7 +118,7 @@ h1 {
     justify-content: center;
 }
 .droparea {
-    width: 273px; 
+    width: 250px; 
     height: 60px;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23C42326FF' stroke-width='4' stroke-dasharray='9' stroke-dashoffset='17' stroke-linecap='square'/%3e%3c/svg%3e");
     border-radius: 15px;
@@ -170,23 +127,21 @@ h1 {
     justify-content: center;
     background-color: transparent;
     font-size: small;
-    max-width: 273px; 
-    max-height: 60px;
+    
 } 
 /* Shape for file-upload */
 .filename{
   background-color: white;
   border: solid black;
-  border-radius: 7px;
+  border-radius: 5px;
   border-width: 0.5px;
   margin-top: 10px;
   padding: 3px;
   font-size: small;
   display: flex;
   justify-content: space-between;
-  height: 17px;
-  max-width: 262px;
-  max-height: 17px;
+  height: 25px;
+  align-items: center;
 }
 
 /* Columns for file-upload */
@@ -194,11 +149,39 @@ h1 {
   order: 1;
   flex-basis: 50%;
   padding-left: 3px;
+  max-height: 17px;
 }
 
 .column2{
   order: 2;
   flex-basis: 50%;
+  
+  max-height: 17px;
+}
+
+.btnRight{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.btnUpload{
+  margin-top: 15px;
+  background-color:#c42326;
+	border-radius:10px;
+  padding-right: 18px;
+  padding-left: 18px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	text-decoration:none;
+  border: 0;
+
+}
+.btnUpload:hover {
+	background-color:#e6242b;
 }
 
 /* RECTANGLE */
@@ -206,28 +189,14 @@ h1 {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='%23C42326FF' stroke-width='14' stroke-dasharray='6%2c 14' stroke-dashoffset='22' stroke-linecap='square'/%3e%3c/svg%3e");
   border-radius: 16px;
   background-color: #c42326;
-  padding: 30%;
-  width: 15px;
+  width: 90px;
+  height: 87px;
   position:absolute;
     /* pozicioniranje bordera */
-  top: -75px;
-  left: 20px;
-  right: 80px; 
-  bottom: 680px;
-  z-index: 1;
-}
-.fullrectangle2{
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='%23C42326FF' stroke-width='14' stroke-dasharray='6%2c 14' stroke-dashoffset='22' stroke-linecap='square'/%3e%3c/svg%3e");
-  border-radius: 16px;
-  background-color: #c42326;
-  padding: 30%;
-  width: 15px;
-  position:absolute;
-    /* pozicioniranje bordera */
-  top: 125px;
-  left: -120px;
-  right: -80px; 
-  bottom: 90px;
+  top: -45px;
+  left: 35px;
+  right: -50px; 
+  bottom: 2px;
   z-index: 1;
 }
 .emptyrectancle1{
@@ -235,30 +204,80 @@ h1 {
   border-radius: 16px;
   border-width: 1px;
   background-color: transparent;
-  padding: 30%;
-  width: 15px;
-  /* height: 10px; */
+  width: 109px;
+  height: 100px;
   position:absolute;
   /* pozicioniranje bordera */
-  top: -60px;
-  left: 60px;
-  right: 80px; 
-  bottom: 250px;
+  top: -30px;
+  left: 55px;
+  right: 90px; 
+  bottom: 600px;
   z-index: 0;
+}
+.fullrectangle2{
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='%23C42326FF' stroke-width='14' stroke-dasharray='6%2c 14' stroke-dashoffset='22' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 16px;
+  background-color: #c42326;
+  width: 90px;
+  height: 87px;
+  position:absolute;
+    /* pozicioniranje bordera */
+  top: 145px;
+  left: -115px;
+  right: -50px; 
+  bottom: 100px;
+  z-index: 1;
 }
 .emptyrectancle2{
   border: solid #c42326;
   border-radius: 16px;
   border-width: 1px;
   background-color: transparent;
-  padding: 30%;
-  width: 15px;
-  /* height: 10px; */
+  width: 109px;
+  height: 100px;
   position:absolute;
   /* pozicioniranje bordera */
-  top: 90px;
-  left: -160px;
-  right: -100px; 
-  bottom: 100px;
+  top: 120px;
+  left: -155px;
+  right: -120px; 
+  bottom: 1px;
   z-index: 0;
+}
+
+/* Lines↓*/
+.line2 {
+  position: fixed;
+  right: 0;
+  top: 90%;
+  height: 18px;   
+  width: 35%;
+  background-color: #c42426;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.line2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -36px;
+  height: 18px;
+  width: 90%;
+  background-color: #c42426;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.line2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -72px;
+  height: 18px;
+  width: 70%;
+  background-color: #c42426;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px; 
 }

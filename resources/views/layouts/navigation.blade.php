@@ -30,16 +30,16 @@
                 <div class="d-flex flex-column " style="height: 100vh; ">
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center" style="margin-top: 5vh;">
                         <li class="nav-item">
-                            <button type="button" class="btn"><img src="images/navbarIkone/home.png" alt="Ikona dugmeta"></button>
+                            <button type="button" class="btn"><img src="images/navbarIkone/home.png" class="navikone" alt="Ikona dugmeta"></button>
                         </li>
                         <li>
-                            <button type="button" class="btn"><img src="images/navbarIkone/profile.png" alt="Ikona dugmeta"></button>
+                            <button type="button" class="btn"><img src="images/navbarIkone/profile.png" class="navikone" alt="Ikona dugmeta"></button>
                         </li>
                         <li>
-                            <button type="button" class="btn"><img src="images/navbarIkone/task.png" alt="Ikona dugmeta"></button>
+                            <button type="button" class="btn"><img src="images/navbarIkone/task.png" class="navikone" alt="Ikona dugmeta"></button>
                         </li>
                         <li>
-                            <button type="button" class="btn"><img src="images/navbarIkone/gear.png" alt="Ikona dugmeta"></button>
+                            <button type="button" class="btn"><img src="images/navbarIkone/gear.png" class="navikone" alt="Ikona dugmeta"></button>
                         </li>
                     </ul>
                     <!-- <div class="d-flex align-items-end justify-content-center" style="margin-bottom: 20px;">
@@ -53,8 +53,8 @@
             <main class="pt-3 w-100 bd-highlight ">
                 <div class="ps-5 w-100 bd-highlight">
                     <div class="row">
-                        <div class="col-md-10 ">
-                            <img src="images/logo-link.png" alt="Slika logo-a">
+                        <div class="col-md-10">
+                            <img src="images/logo-link.png" alt="Slika logo-a" style="width: 180px; margin-top:5px">
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
