@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\UriTemplate\UriTemplate;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\Client\Events\ConnectionFailed;
 use Illuminate\Http\Client\Events\RequestSending;
@@ -57,6 +58,13 @@ class PendingRequest
     protected $baseUrl = '';
 
     /**
+     * The parameters that can be substituted into the URL.
+     *
+     * @var array
+     */
+    protected $urlParameters = [];
+
+    /**
      * The request body format.
      *
      * @var string
@@ -87,7 +95,7 @@ class PendingRequest
     /**
      * The transfer stats for the request.
      *
-     * \GuzzleHttp\TransferStats
+     * @var \GuzzleHttp\TransferStats
      */
     protected $transferStats;
 
@@ -343,7 +351,9 @@ class PendingRequest
      */
     public function contentType(string $contentType)
     {
-        return $this->withHeaders(['Content-Type' => $contentType]);
+        $this->options['headers']['Content-Type'] = $contentType;
+
+        return $this;
     }
 
     /**
@@ -434,6 +444,19 @@ class PendingRequest
     {
         return tap($this, function () use ($userAgent) {
             $this->options['headers']['User-Agent'] = trim($userAgent);
+        });
+    }
+
+    /**
+     * Specify the URL parameters that can be substituted into the request URL.
+     *
+     * @param  array  $parameters
+     * @return $this
+     */
+    public function withUrlParameters(array $parameters = [])
+    {
+        return tap($this, function () use ($parameters) {
+            $this->urlParameters = $parameters;
         });
     }
 
@@ -669,7 +692,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array|string|null  $query
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      */
     public function get(string $url, $query = null)
     {
@@ -683,7 +706,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array|string|null  $query
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      */
     public function head(string $url, $query = null)
     {
@@ -697,7 +720,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      */
     public function post(string $url, $data = [])
     {
@@ -711,9 +734,9 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      */
-    public function patch($url, $data = [])
+    public function patch(string $url, $data = [])
     {
         return $this->send('PATCH', $url, [
             $this->bodyFormat => $data,
@@ -725,9 +748,9 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      */
-    public function put($url, $data = [])
+    public function put(string $url, $data = [])
     {
         return $this->send('PUT', $url, [
             $this->bodyFormat => $data,
@@ -739,9 +762,9 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      */
-    public function delete($url, $data = [])
+    public function delete(string $url, $data = [])
     {
         return $this->send('DELETE', $url, empty($data) ? [] : [
             $this->bodyFormat => $data,
@@ -773,7 +796,7 @@ class PendingRequest
      * @param  string  $method
      * @param  string  $url
      * @param  array  $options
-     * @return \Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface
+     * @return \Illuminate\Http\Client\Response
      *
      * @throws \Exception
      */
@@ -782,6 +805,8 @@ class PendingRequest
         if (! Str::startsWith($url, ['http://', 'https://'])) {
             $url = ltrim(rtrim($this->baseUrl, '/').'/'.ltrim($url, '/'), '/');
         }
+
+        $url = $this->expandUrlParameters($url);
 
         $options = $this->parseHttpOptions($options);
 
@@ -836,6 +861,17 @@ class PendingRequest
 
             return $result;
         });
+    }
+
+    /**
+     * Substitute the URL parameters in the given URL.
+     *
+     * @param  string  $url
+     * @return string
+     */
+    protected function expandUrlParameters(string $url)
+    {
+        return UriTemplate::expand($url, $this->urlParameters);
     }
 
     /**
@@ -1176,7 +1212,7 @@ class PendingRequest
     /**
      * Replace the given options with the current request options.
      *
-     * @param  array  $options
+     * @param  array  ...$options
      * @return array
      */
     public function mergeOptions(...$options)
