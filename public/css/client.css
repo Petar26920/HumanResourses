@@ -130,7 +130,7 @@ h1 {
     
 } 
 /* Shape for file-upload */
-.filename{
+#filename{
   background-color: white;
   border: solid black;
   border-radius: 5px;
@@ -138,25 +138,107 @@ h1 {
   margin-top: 10px;
   padding: 3px;
   font-size: small;
-  display: flex;
+  display:flex;
+  visibility:hidden;
+  justify-content: space-between;
+  height: 25px;
+  align-items: center;
+}
+#filename1{
+  background-color: white;
+  border: solid black;
+  border-radius: 5px;
+  border-width: 0.5px;
+  margin-top: 10px;
+  padding: 3px;
+  font-size: small;
+  display:flex;
+  visibility: hidden;
+  justify-content: space-between;
+  height: 25px;
+  align-items: center;
+}
+#filename2{
+  background-color: white;
+  border: solid black;
+  border-radius: 5px;
+  border-width: 0.5px;
+  margin-top: 10px;
+  padding: 3px;
+  font-size: small;
+  display:flex;
+  visibility: hidden;
   justify-content: space-between;
   height: 25px;
   align-items: center;
 }
 
+
+
 /* Columns for file-upload */
 .column1{
-  order: 1;
-  flex-basis: 50%;
-  padding-left: 3px;
+  width: 100%;
   max-height: 17px;
+  display:none;
+  align-items: center;
+  
+}
+.column2{
+  width: 100%;
+  max-height: 17px;
+
 }
 
-.column2{
-  order: 2;
-  flex-basis: 50%;
-  
-  max-height: 17px;
+#myProgress {
+  width: 100%;
+  background-color: transparent;
+  border: solid #c42426;
+  border-radius: 3px;
+}
+#myProgress2 {
+  width: 100%;
+  background-color: transparent;
+  border: solid #c42426;
+  border-radius: 3px;
+}
+#myProgress3 {
+  width: 100%;
+  background-color: transparent;
+  border: solid #c42426;
+  border-radius: 3px;
+}
+#myBar{
+  width: 10%;
+  height: 10px;
+  border: solid #c42426;
+  background-color: #c42426;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 5px; /* To center it vertically */
+  color: white;
+}
+#myBar2{
+  width: 10%;
+  height: 10px;
+  border: solid #c42426;
+  background-color: #c42426;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 5px; /* To center it vertically */
+  color: white;
+}
+#myBar3{
+  width: 10%;
+  height: 10px;
+  border: solid #c42426;
+  background-color: #c42426;
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 5px; /* To center it vertically */
+  color: white;
+}
+.fname{
+  max-width: 55ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .btnRight{
@@ -281,3 +363,4 @@ h1 {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px; 
 }
+

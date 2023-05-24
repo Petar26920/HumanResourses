@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ClientController; 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,8 +41,12 @@ Route::get('/userManagmentPage', function () {
 });
 
 
-Route::get('/client', function () {
-    return view('client');
+
+
+Route::get('client', 'App\Http\Controllers\ClientController@store')->name("client2");
+
+Route::get('/login2', function () {
+    return view('login');
 });
 
 require __DIR__ . '/auth.php';

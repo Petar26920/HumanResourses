@@ -57,7 +57,7 @@
                             <img src="images/logo-link.png" alt="Slika logo-a" style="width: 180px; margin-top:5px">
                         </div>
                         <div class="col-md-2">
-                            <button type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
+                            <button type="button" class="mt-3 btn btn-outline-danger border-danger border border-0 text-danger">Log out</button>
                         </div>
                     </div>
                     @yield("main")
