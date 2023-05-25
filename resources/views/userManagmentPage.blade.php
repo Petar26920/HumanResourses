@@ -43,9 +43,9 @@
                         </li>
                     </ul>
                     <!-- <div class="d-flex align-items-end justify-content-center" style="margin-bottom: 20px;">
-
+                        
                         <button type="button" class="btn"><i class="bi bi-chat-left"></i></button>
-
+                        
                     </div> -->
                 </div>
             </nav>
@@ -152,7 +152,7 @@
                                         <div class="modal-header">
                                             <h6 class="modal-title" id="myModalLabel">Add new user</h6>
                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="font-size:12px; padding:0;">
-                                                <h3 aria-hidden="true" >&times;</h3>
+                                                <h3 aria-hidden="true">&times;</h3>
                                             </button>
                                         </div>
                                         <div class="modal-body">
@@ -162,48 +162,66 @@
                                                     <div class="col-m-12">
                                                         <div class="tile">
                                                             <div class="login show">
-                                                                <form>
+
+
+                                                                <form method="POST" action="{{ url('/userManagmentPage') }}">
+                                                                    @csrf
+
                                                                     <div class="formNewUser">
                                                                         <div class="row">
+                                                                            <!--First Name -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="fName">First name</label>
-                                                                                <input type="text" name="fName" class="form-control" required>
-                                                                            </div><!-- group -->
+                                                                                <x-input-label for="firstname" :value="__('First Name')" />
+                                                                                <x-text-input id="firstname" class="form-control" type="text" name="firstname" required />
+                                                                            </div>
+                                                                            <!--Last Name -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="lName">Last name</label>
-                                                                                <input type="text" name="lName" class="form-control" required>
+                                                                                <x-input-label for="lastname" :value="__('Last Name')" />
+                                                                                <x-text-input id="lastname" class="form-control" type="text" name="lastname" required />
                                                                             </div><!-- group -->
                                                                         </div>
                                                                         <div class="row">
+                                                                            <!-- Phonenum -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="phone">Phone number</label>
-                                                                                <input type="text" name="phone" class="form-control" required>
-                                                                            </div><!-- group -->
+                                                                                <x-input-label for="phonenum" :value="__('Phone num')" />
+
+                                                                                <x-text-input id="phonenum" class="form-control" type="text" name="phonenum" required />
+                                                                            </div>
+
+                                                                            <!-- Email Address -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="Email">Email</label>
-                                                                                <input type="email" name="Email" class="form-control" required>
-                                                                            </div><!-- group -->
-                                                                        </div>
-                                                                        
-                                                                        <div class="form-group">
-                                                                            <label for="Role">Role</label>
-                                                                            <select name="Role" class="form-control" id="idRole">
-                                                                                <option value="admin">Admin <i class="bi bi-chevron-compact-down"></i></option>
-                                                                                <option value="user" selected>User</option>
-                                                                            </select>
-                                                                        </div><!-- group -->
-                                                                        
-                                                                        <div class="form-group">
-                                                                            <label for="password">Password</label>
-                                                                            <input type="password" name="password" class="form-control" required>
-                                                                        </div><!-- group -->
-                                                                        <!-- USER: Fname,Lname,Email,Role,PhoneNumber,Pass -->
-                                                                            <div class="row dugmici">
-                                                                                <div class="col-md-8"></div>
-                                                                                <button type="button" class="close cancel col-md-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                                                                                <button type="submit" name="addUser" class="btn btn-info btn-block col-md-2">Add</button>
+                                                                                <x-input-label for="email" :value="__('Email')" />
+                                                                                <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                                                                                <x-input-error :messages="$errors->get('email')" class="" />
                                                                             </div>
                                                                         </div>
+                                                                        <!-- Role -->
+                                                                        <div class="form-group">
+                                                                            <x-input-label for="role" :value="__('Role')" />
+                                                                            <select name="role" id="role" class="form-control">
+                                                                                <option value="A">Admin</option>
+                                                                                <option value="U">User</option>
+                                                                            </select>
+                                                                        </div>
+
+
+                                                                        <!-- Password -->
+                                                                        <div class="form-group">
+                                                                            <x-input-label for="password" :value="__('Password')" />
+
+                                                                            <x-text-input id="password" class="form-control" type="password" name="password" pattern=".{8,}" required autocomplete="new-password" oninvalid="setCustomValidity('Password must be at least 8 characters long.')"
+                                                                            />
+
+                                                                            <x-input-error :messages="$errors->get('password')" class="" />
+                                                                        </div>
+
+
+                                                                        <div class="row dugmici">
+                                                                            <div class="col-md-8"></div>
+                                                                            <button type="button" class="close cancel col-md-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                                            <button type="submit" name="addUser" class="btn btn-info btn-block col-md-2">Add</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </form>
                                                             </div><!-- login -->
                                                         </div><!-- tile -->
@@ -212,18 +230,10 @@
                                             </div><!-- container -->
                                             </form>
                                         </div>
-                                        <!-- <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary">Save changes</button>
-</div> -->
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
-
                     </div>
                 </div>
             </main>
@@ -238,7 +248,6 @@
                 }]
             });
         });
-
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/userManagement', function () {
-    return view('userManagmentPage');
-});
+
+//Working
+Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
+Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
+// Route::get('/custom-register', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
+// Route::post('/custom-register', 'App\Http\Controllers\CustomRegistrationController@register');
+
+
+
+
+
+// Route::get('/userManagement', function () {
+//     return view('userManagmentPage');
+// });
 
 Route::get('/navLajout', function () {
     return view('proba');
@@ -36,9 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/userManagmentPage', function () {
-    return view('userManagmentPage');
-});
+// Route::get('/userManagmentPage', function () {
+//     return view('userManagmentPage');
+// });
 
 
 Route::get('/client', function () {

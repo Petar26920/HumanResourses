@@ -2,11 +2,23 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!--First Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-label for="firstname" :value="__('First Name')" />
+
+            <x-text-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" required />
+        </div>
+        <!--Last Name -->
+        <div>
+            <x-input-label for="lastname" :value="__('Last Name')" />
+
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" required />
+        </div>
+        <!-- Phonenum -->
+        <div>
+            <x-input-label for="phonenum" :value="__('Phone num')" />
+
+            <x-text-input id="phonenum" class="block mt-1 w-full" type="text" name="phonenum" required />
         </div>
 
         <!-- Email Address -->
@@ -15,6 +27,16 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+
+        <!-- Role -->
+        <div class="mt-4">
+            <x-input-label for="role" :value="__('Role')" />
+            <select name="role" id="role">
+                <option value="A">Admin</option>
+                <option value="U">User</option>
+            </select>
+        </div>
+
 
         <!-- Password -->
         <div class="mt-4">
