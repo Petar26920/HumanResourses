@@ -77,96 +77,29 @@
                         <!-- Ovo treba da bude data tables al ne moze previse da se customizuje tako da sam morao rucno da bi izgledalo kao na slici -->
                         <div class="mt-3">
                             <div class="table-wrapper">
-                                
-                            <table id="table_id" class="table table-striped">
-                                <thead class="crvena ">
-                                    <tr>
-                                        <th class="text-center">Active</th>
-                                        <th class="text-center">Category</th>
-                                        <th class="text-center">Name</th>
-                                        <th class="text-center">Last name</th>
-                                        <th class="text-center">E-mail</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                </tbody>
-                                
-                            </table>
-                            
-                        </div>
-                            {{-- <table id="table_id" class=" " class="table table-striped">
-                                <thead class="crvena ">
-                                    <tr>
-                                        <th class="text-center">Active</th>
-                                        <th class="text-center">Category</th>
-                                        <th class="text-center">Name</th>
-                                        <th class="text-center">Last name</th>
-                                        <th class="text-center">E-mail</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>Administrator</td>
-                                        <td>Nemanja</td>
-                                        <td>Peric</td>
-                                        <td>n.peric@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>User</td>
-                                        <td>Marko</td>
-                                        <td>Jovanovic</td>
-                                        <td>m.j@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>User</td>
-                                        <td>Nikola</td>
-                                        <td>Todic</td>
-                                        <td>to.m@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>Administrator</td>
-                                        <td>Maja</td>
-                                        <td>Tomic</td>
-                                        <td>tomi.m@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table> --}}
+                                <table id="table_id" class="table table-striped">
+                                    <thead class="crvena ">
+                                        <tr>
+                                            <th class="text-center">Active</th>
+                                            <th class="text-center">Category</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Last name</th>
+                                            <th class="text-center">E-mail</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <!-- MY BUTTON -->
                             <!-- Button trigger modal -->
                             <button type="button" id="addButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-
                                 Add new user
                             </button>
-
                             <!-- Modal -->
-
                             <div class="modal moj fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -183,11 +116,8 @@
                                                     <div class="col-m-12">
                                                         <div class="tile">
                                                             <div class="login show">
-
-
                                                                 <form method="POST" action="{{ url('/userManagmentPage') }}">
                                                                     @csrf
-
                                                                     <div class="formNewUser">
                                                                         <div class="row">
                                                                             <!--First Name -->
@@ -224,14 +154,11 @@
                                                                                 <option value="U">User</option>
                                                                             </select>
                                                                         </div>
-
-
                                                                         <!-- Password -->
                                                                         <div class="form-group">
                                                                             <x-input-label for="password" :value="__('Password')" />
 
-                                                                            <x-text-input id="password" class="form-control" type="password" name="password" pattern=".{8,}" required autocomplete="new-password" oninvalid="setCustomValidity('Password must be at least 8 characters long.')"
-                                                                            />
+                                                                            <x-text-input id="password" class="form-control" type="password" name="password" pattern=".{8,}" required autocomplete="new-password" oninvalid="setCustomValidity('Password must be at least 8 characters long.')" />
 
                                                                             <x-input-error :messages="$errors->get('password')" class="" />
                                                                         </div>
@@ -261,76 +188,67 @@
         </div>
     </div>
     <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable({
+                scrollY: '200px', // Set the height of the vertical scrollbar area
+                scrollCollapse: true, // Enable collapse of table when scrolling
+                paging: true, // Enable pagination
+                pageLength: 10, // Set the number of rows per page
 
 
-$(document).ready(function () {
-    $('#table_id').DataTable({
-        scrollY: '200px', // Set the height of the vertical scrollbar area
-    scrollCollapse: true, // Enable collapse of table when scrolling
-    paging: true, // Enable pagination
-    pageLength: 10, // Set the number of rows per page
-        
-        
-        'columnDefs': [{
+                'columnDefs': [{
                     'targets': [0, 5],
                     'orderable': false, // set orderable false for selected columns
                 }],
-        ajax: '/users-data',
-        columns: [
-            { data: null, render: function () { return 'Zeleno'; } },
-            { 
-                data: 'role',
-                render: function (data) {
-                    if (data === 'A') {
-                        return 'Admin';
-                    } else if (data === 'U') {
-                        return 'User';
+                ajax: '/users-data',
+                columns: [{
+                        data: null,
+                        render: function() {
+                            return 'Zeleno';
+                        }
+                    },
+                    {
+                        data: 'role',
+                        render: function(data) {
+                            if (data === 'A') {
+                                return 'Admin';
+                            } else if (data === 'U') {
+                                return 'User';
+                            } else {
+                                return '';
+                            }
+                        }
+                    },
+                    {
+                        data: 'firstname'
+                    },
+                    {
+                        data: 'lastname'
+                    },
+                    {
+                        data: 'email'
+                    },
+                    {
+                        data: 'action',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                rowCallback: function(row, data, index) {
+                    $(row).addClass('text-center');
+                    if (index % 2 === 0) {
+                        $(row).addClass('even');
                     } else {
-                        return '';
+                        $(row).addClass('odd');
                     }
                 }
-            },
-            { data: 'firstname' },
-            { data: 'lastname' },
-            { data: 'email' },
-            { data: 'action', orderable: false, searchable: false }
-        ],
-        // initComplete: function () {
-        //     var dataTable = this.api();
-        //     var tableWrapper = $(dataTable.table().container()).closest('.table-wrapper');
-        //     var scrollThreshold = 6; // Number of rows before scrollbar appears
-            
-        //     if (dataTable.rows().count() > scrollThreshold) {
-        //         tableWrapper.css('overflow-y', 'scroll');
-        //     }
-        // },
-        rowCallback: function (row, data, index) {
-            $(row).addClass('text-center');
-            if (index % 2 === 0) {
-                $(row).addClass('even');
-            } else {
-                $(row).addClass('odd');
-            }
-        }
-        
-        
-    });
-});
 
 
-
-        // $(document).ready(function() {
-        //     $('#table_id').DataTable({
-        //         'columnDefs': [{
-        //             'targets': [0, 5],
-        //             'orderable': false, // set orderable false for selected columns
-        //         }]
-        //     });
-        // });
+            });
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 
 </body>
 

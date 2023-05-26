@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 //Added
 use Yajra\DataTables\DataTables;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Models\User;
 
 
 //Rute za userManagment stranicu
-Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
+Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth','verified']);
 Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
 Route::get('users-data', function () {
     $users = User::select('role','firstname', 'lastname', 'email')->get();
@@ -64,8 +65,8 @@ Route::get('/client', function () {
     return view('client');
 });
 
-Route::get('/login',function(){
-    return view('login');
-});
+// Route::get('/login',function(){
+//     return view('login');
+// });
 require __DIR__ . '/auth.php';
 

@@ -76,14 +76,14 @@ table>thead>tr>th:last-child{
     margin-bottom: 10px;
     
   }
-  
-  #table_id{
-    border: 0px;
+
+  table#table_id tbody tr {
+    border: 0px solid transparent;
   }
+
   #table_id tbody tr.even{
     background-color: #f1f1f1;
     border-radius: 30px;
-    border: 10px solid black;
 }
 
 #table_id tbody tr.odd {
