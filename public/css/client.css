@@ -235,7 +235,7 @@ h1 {
   color: white;
 }
 .fname{
-  max-width: 55ch;
+  max-width: 25ch;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -264,6 +264,29 @@ h1 {
 }
 .btnUpload:hover {
 	background-color:#e6242b;
+}
+.btnUpload:disabled{
+  background-color: grey;
+}
+.prva{
+  order: 1;
+  flex-basis: 90%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+.druga{
+  order: 2;
+  flex-basis: 10%;
+  align-items: center;
+  justify-content: end;
+}
+.iksic{
+  border: none;
+  background-color: transparent;
+  max-height: 19px;
+  align-items: center;
+  max-width: 8.4px;
 }
 
 /* RECTANGLE */

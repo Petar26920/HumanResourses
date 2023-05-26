@@ -19,11 +19,12 @@
     <script src="{{ asset('js/progressbar.js') }}"></script>
     <script src="{{ asset('js/filename.js') }}"></script>
     <script src="{{ asset('js/dragdrop.js') }}"></script>
+    <script src="{{ asset('js/brisanjefajla.js') }}"></script>
 </head>
 
 <body>
-    <form action="#" method="POST">
-    
+    <form action="{{ route('client.upload') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="container">
             <div class="okvir">
                 <div class="okvirslika">
@@ -76,8 +77,15 @@
                                 <div class="filename" id="filename">
                                     <div class="column1" id="column1">
                                         <!-- file info -->
-                                        <i class="fa-regular fa-file fa-flip-vertical fa-lg" style="color: #000000;"></i>&nbsp;
-                                        <label id="filename-display" class="fname"></label>
+                                        <i class="fa-regular fa-file fa-flip-vertical fa-lg" style="margin-bottom:2px;color: #000000;"></i>&nbsp;
+                                        <div class="prva">
+                                            <label id="filename-display" class="fname"></label>
+                                        </div>
+                                        <div class="druga">
+                                            <button type="button" id="btnx1" class="iksic">
+                                                <h6 aria-hidden="true">&times;</h6>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="column2" id="column2">
                                         <!-- progressbar -->
@@ -88,9 +96,15 @@
                                 </div>
                                 <div class="filename" id="filename1">
                                     <div class="column1" id="column3">
-                                        <!-- file info -->
-                                        <i class="fa-regular fa-file fa-flip-vertical fa-lg" style="color: #000000;"></i>&nbsp;
-                                        <label id="filename-display-2" class="fname"></label>
+                                        <i class="fa-regular fa-file fa-flip-vertical fa-lg" style="margin-bottom:2px;color: #000000;"></i>&nbsp;
+                                        <div class="prva">
+                                            <label id="filename-display-2" class="fname"></label>
+                                        </div>
+                                        <div class="druga">
+                                            <button type="button" id="btnx2" class="iksic">
+                                                <h6 aria-hidden="true">&times;</h6>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="column2" id="column4">
                                         <!-- progressbar -->
@@ -101,9 +115,15 @@
                                 </div>
                                 <div class="filename" id="filename2">
                                     <div class="column1" id="column5">
-                                        <!-- file info -->
-                                        <i class="fa-regular fa-file fa-flip-vertical fa-lg" style="color: #000000;"></i>&nbsp;
-                                        <label id="filename-display-3" class="fname"></label>
+                                        <i class="fa-regular fa-file fa-flip-vertical fa-lg" style="margin-bottom:2px;color: #000000;"></i>&nbsp;
+                                        <div class="prva">
+                                            <label id="filename-display-3" class="fname"></label>
+                                        </div>
+                                        <div class="druga">
+                                            <button type="button" id="btnx3" class="iksic">
+                                                <h6 aria-hidden="true">&times;</h6>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="column2" id="column6">
                                         <!-- progressbar -->
@@ -112,16 +132,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="btnRight">
-                                    <input type="submit" value="Upload" class="btnUpload">
-                                </div>
                             </div>
-                            <div class="line2"></div>
+                            <div class="btnRight">
+                                <input type="submit" value="Upload" class="btnUpload" id="btnUpload" disabled>
+                            </div>
                         </div>
+                        <div class="line2"></div>
                     </div>
                 </div>
             </div>
+        </div>
+        
     </form>
+
 
 </body>
 

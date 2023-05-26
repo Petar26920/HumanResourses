@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientController; 
+use App\Http\Controllers\ClientController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,8 +43,8 @@ Route::get('/userManagmentPage', function () {
 
 
 
-
-Route::get('client', 'App\Http\Controllers\ClientController@store')->name("client2");
+Route::get('/client', [ClientController::class, 'index'])->name('client.index');
+Route::post('/client/upload', [ClientController::class, 'upload'])->name('client.upload');
 
 Route::get('/login2', function () {
     return view('login');
