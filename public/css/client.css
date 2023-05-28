@@ -387,3 +387,15 @@ h1 {
   border-bottom-left-radius: 10px; 
 }
 
+
+
+#form1{
+  padding: 0%;
+  height: 60px;
+  max-height: 60px;
+  max-width: 250px;
+  width: 250px;
+  border: none;
+  background-color: transparent;
+}
+

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,15 @@ Route::get('/userManagmentPage', function () {
 
 Route::get('/client', [ClientController::class, 'index'])->name('client.index');
 Route::post('/client/upload', [ClientController::class, 'upload'])->name('client.upload');
+
+Route::get('/fileupload', [FileUploadController::class, 'index'])->name('fileupload.index');
+Route::post('/fileupload/store', [FileUploadController::class, 'store'])->name('fileupload.store');
+
+
+Route::get('/proba', function () {
+    return view('proba');
+});
+
 
 Route::get('/login2', function () {
     return view('login');
