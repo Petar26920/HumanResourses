@@ -62,7 +62,12 @@
                                 <img src="images/logo-link.png" alt="Slika logo-a">
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button onclick="event.preventDefault();
+                                                this.closest('form').submit();" type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
+
+                                </form>
                             </div>
                         </div>
                         <h1 class="text-center" id="naslov">User managment</h1>
@@ -209,8 +214,7 @@
                                                                         <div class="form-group">
                                                                             <x-input-label for="password" :value="__('Password')" />
 
-                                                                            <x-text-input id="password" class="form-control" type="password" name="password" pattern=".{8,}" required autocomplete="new-password" oninvalid="setCustomValidity('Password must be at least 8 characters long.')"
-                                                                            />
+                                                                            <x-text-input id="password" class="form-control" type="password" name="password" pattern=".{8,}" required autocomplete="new-password" oninvalid="setCustomValidity('Password must be at least 8 characters long.')" />
 
                                                                             <x-input-error :messages="$errors->get('password')" class="" />
                                                                         </div>
