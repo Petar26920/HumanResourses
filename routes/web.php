@@ -3,6 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//Added
+use Yajra\DataTables\DataTables;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,19 +20,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-//Working
-Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
+//Rute za userManagment stranicu
+Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth','verified']);
 Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
-// Route::get('/custom-register', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
-// Route::post('/custom-register', 'App\Http\Controllers\CustomRegistrationController@register');
+Route::get('users-data', function () {
+    $users = User::select('role','firstname', 'lastname', 'email')->get();
+
+    return DataTables::of($users)
+        ->addColumn('action', function ($user) {
+            return '<td>
+            <button type="button" class="btn crvena">Info</button>
+            <button type="button" class="btn siva">Edit</button>
+            <button type="button" class="btn crna">Delete</button>
+        </td>';
+        })
+        ->rawColumns(['action'])
+        ->toJson();
+});
 
 
 
-
-
-// Route::get('/userManagement', function () {
-//     return view('userManagmentPage');
-// });
+//
 
 Route::get('/navLajout', function () {
     return view('proba');
@@ -47,14 +60,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/userManagmentPage', function () {
-//     return view('userManagmentPage');
-// });
-
 
 Route::get('/client', function () {
     return view('client');
 });
 
+// Route::get('/login',function(){
+//     return view('login');
+// });
 require __DIR__ . '/auth.php';
 

@@ -50,7 +50,7 @@ public function register(Request $request)
 
     // Perform any additional actions or redirects as needed
 
-    return redirect('/'); // Redirect the user to a specific page after successful registration
+    return redirect('/userManagmentPage'); // Redirect the user to a specific page after successful registration
 }
 
 

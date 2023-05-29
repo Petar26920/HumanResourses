@@ -12,7 +12,10 @@
 		
 		<div class="dugmepozicija">
 		<!-- <a href="/" class="button">Log in</a> -->
-		<button type="submit" class="button">Start</button>
+		<form action="{{url('/login')}}" method="get">
+			<button type="submit" class="button">Start</button>
+		</form>
+		
 	</div>
 	</div>
 	<div class="line"></div>
