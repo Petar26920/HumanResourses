@@ -117,6 +117,17 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+.dropicnaeksic{
+  width: 250px; 
+    height: 60px;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23C42326FF' stroke-width='4' stroke-dasharray='9' stroke-dashoffset='17' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    font-size: small;
+}
 .droparea {
     width: 250px; 
     height: 60px;
@@ -399,3 +410,18 @@ h1 {
   background-color: transparent;
 }
 
+.drag1{
+  align-items: center;
+}
+
+.containerdrag{
+  height: 60px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dz-preview{
+  display: none;
+}

@@ -44,11 +44,9 @@ Route::get('/userManagmentPage', function () {
 
 
 
-Route::get('/client', [ClientController::class, 'index'])->name('client.index');
-Route::post('/client/upload', [ClientController::class, 'upload'])->name('client.upload');
 
-Route::get('/fileupload', [FileUploadController::class, 'index'])->name('fileupload.index');
-Route::post('/fileupload/store', [FileUploadController::class, 'store'])->name('fileupload.store');
+Route::get('/client', [FileUploadController::class, 'index'])->name('client.index');
+Route::post('/client/upload', [FileUploadController::class, 'upload'])->name('client.upload');
 
 
 Route::get('/proba', function () {

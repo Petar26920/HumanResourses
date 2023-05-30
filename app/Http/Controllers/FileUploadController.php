@@ -7,15 +7,30 @@ class FileUploadController extends Controller
     {
         return view('client');
     }
-    public function store(Request $request)
+    public function upload(Request $request)
     {
     
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = $file->getClientOriginalName();
-            $file->move(storage_path('app/uploads'), $fileName);
-            return response()->json(['message' => 'File uploaded successfully']);
-        }
-        return response()->json(['message' => 'No file uploaded'], 400);
+      // Validate the uploaded file
+    $request->validate([
+        'file' => 'required|file',
+    ]);
+
+    // Retrieve the uploaded file
+    $file = $request->file('file');
+
+    // Generate a unique filename
+    $filename = uniqid().'.'.$file->extension();
+
+    // Store the file in the specified directory
+    $path = $file->storeAs('uploads', $filename);
+
+    // Alternatively, if you want to store the file in the storage/app/uploads directory
+    // without preserving the original filename, you can use the store() method:
+    // $path = $file->store('uploads');
+
+    // You can now perform additional actions with the uploaded file path,
+    // such as storing it in the database or displaying a success message to the user
+
+    return redirect()->back()->with('success', 'File uploaded successfully.');
     }
 }
