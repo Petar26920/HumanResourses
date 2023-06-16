@@ -1,36 +1,42 @@
 <?php
+
 namespace App\Http\Controllers;
+
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class FileUploadController extends Controller
 {
     public function index()
     {
         return view('client');
     }
+
     public function upload(Request $request)
     {
-    
-      // Validate the uploaded file
-    $request->validate([
-        'file' => 'required|file',
-    ]);
+        $request->validate([
+            'file' => 'required|array',
+            'file.*' => 'file|mimes:pdf,docx,doc|max:15360', // Specify the allowed file extensions here
+        ]);
 
-    // Retrieve the uploaded file
-    $file = $request->file('file');
+        if ($request->hasFile('file')) {
+            $files = $request->file('file');
+            $uploadedFiles = [];
 
-    // Generate a unique filename
-    $filename = uniqid().'.'.$file->extension();
+            foreach ($files as $file) {
+                if ($file->isValid()) {
+                    $fileName = $file->getClientOriginalName();
+                    $file->move(storage_path('app/uploads'), $fileName); //where to move
+                    $uploadedFiles[] = $fileName;
+                }
+            }
 
-    // Store the file in the specified directory
-    $path = $file->storeAs('uploads', $filename);
+            if (!empty($uploadedFiles)) {
+                return view('client');
+            }
+        }
 
-    // Alternatively, if you want to store the file in the storage/app/uploads directory
-    // without preserving the original filename, you can use the store() method:
-    // $path = $file->store('uploads');
-
-    // You can now perform additional actions with the uploaded file path,
-    // such as storing it in the database or displaying a success message to the user
-
-    return redirect()->back()->with('success', 'File uploaded successfully.');
+        return response()->json(['message' => 'No files uploaded'], 400);
     }
 }

@@ -60,14 +60,12 @@
                             <!-- drag and drop -->
                             <div class="dropcontainer">
                                 <div class="dropinfo">
-                                    <div id="dropzone" class="dropicnaeksic">
-
-                                        <div class="dz-message" data-dz-message>
-                                            <span><i class="fa-solid fa-cloud-arrow-down fa-lg" style="color: #c42426;"></i>
-                                                Drag and drop or <a style="color:#c42426;">browse files</a></span>
-                                        </div>
-                                    </div>
-
+                                    <section class="droparea">
+                                        <i class="fa-solid fa-cloud-arrow-down fa-lg" style="color: #c42426;"></i>
+                                        <label></label>
+                                        <a href="#" style="color: #c42426;" onclick="document.getElementById('fileInput').click(); return false;">browse files</a>
+                                        <input type="file" id="fileInput" name="file[]" style="display: none;" multiple onchange="displayFileNames(), validateFileInput()">
+                                    </section>
                                 </div>
                             </div>
 
@@ -149,12 +147,12 @@
     <script src="{{ asset('js/filename.js') }}"></script>
     <!-- <script src="{{ asset('js/brisanjefajla.js') }}"></script> -->
     <script src="{{ asset('js/validacijafajlova.js') }}"></script>
-    <script src="{{ asset('js/dropzone.js') }}"></script>
-    <script src="{{ asset('js/options.js') }}"></script>
-    <script src="{{ asset('js/dropzonefunkcije.js') }}"></script>
+    <!-- <script src="{{ asset('js/dropzone.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/options.js') }}"></script>
+    <script src="{{ asset('js/dropzonefunkcije.js') }}"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script> -->
 
-    
+<!--     
     <script>
         Dropzone.options.acceptedFiles = "pdf,docx,doc";
         Dropzone.options.myDropzone = {
@@ -165,7 +163,7 @@
                 });
             }
         };
-    </script>
+    </script> -->
 
 </body>
 
