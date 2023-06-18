@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <script src="https://kit.fontawesome.com/9b8c178a4c.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/removefile.js') }}"></script>
 
 </head>
 
@@ -80,7 +81,7 @@
                                             <label id="filename-display" class="fname"></label>
                                         </div>
                                         <div class="druga">
-                                            <button type="button" id="btnx1" class="iksic">
+                                            <button type="button" id="btnx1" class="iksic" onclick="removeFile(0)">
                                                 <h6 aria-hidden="true">&times;</h6>
                                             </button>
                                         </div>
@@ -99,7 +100,7 @@
                                             <label id="filename-display-2" class="fname"></label>
                                         </div>
                                         <div class="druga">
-                                            <button type="button" id="btnx2" class="iksic">
+                                            <button type="button" id="btnx2" class="iksic" onclick="removeFile(1)">
                                                 <h6 aria-hidden="true">&times;</h6>
                                             </button>
                                         </div>
@@ -118,7 +119,7 @@
                                             <label id="filename-display-3" class="fname"></label>
                                         </div>
                                         <div class="druga">
-                                            <button type="button" id="btnx3" class="iksic">
+                                            <button type="button" id="btnx3" class="iksic" onclick="removeFile(2)">
                                                 <h6 aria-hidden="true">&times;</h6>
                                             </button>
                                         </div>
@@ -132,7 +133,7 @@
                                 </div>
                             </div>
                             <div class="btnRight">
-                                <button type="submit" value="Upload" class="btnUpload" id="btnUpload">Upload</button>
+                                <button type="submit" value="Upload" class="btnUpload" id="btnUpload" disabled>Upload</button>
                             </div>
                         </div>
     </form>
@@ -145,25 +146,8 @@
 
     <script src="{{ asset('js/progressbar.js') }}"></script>
     <script src="{{ asset('js/filename.js') }}"></script>
-    <!-- <script src="{{ asset('js/brisanjefajla.js') }}"></script> -->
     <script src="{{ asset('js/validacijafajlova.js') }}"></script>
-    <!-- <script src="{{ asset('js/dropzone.js') }}"></script> -->
-    <!-- <script src="{{ asset('js/options.js') }}"></script>
-    <script src="{{ asset('js/dropzonefunkcije.js') }}"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script> -->
 
-<!--     
-    <script>
-        Dropzone.options.acceptedFiles = "pdf,docx,doc";
-        Dropzone.options.myDropzone = {
-            init: function() {
-                this.on("success", function(file, response) {
-                    // Handle the success response here if needed
-                    console.log(response);
-                });
-            }
-        };
-    </script> -->
 
 </body>
 
