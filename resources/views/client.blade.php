@@ -64,7 +64,7 @@
                                     <section class="droparea">
                                         <i class="fa-solid fa-cloud-arrow-down fa-lg" style="color: #c42426;"></i>
                                         <label></label>
-                                        <a href="#" style="color: #c42426;" onclick="document.getElementById('fileInput').click(); return false;">browse files</a>
+                                        <a href="#" style="color: #c42426;" onclick="document.getElementById('fileInput').click(); return false;">Select multiple files</a>
                                         <input type="file" id="fileInput" name="file[]" style="display: none;" multiple onchange="displayFileNames(), validateFileInput()">
                                     </section>
                                 </div>

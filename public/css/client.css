@@ -1,10 +1,6 @@
-@import "fonts";
-@font-face {   
-  font-family: myFirstFont;   
-  src: url(/public/fonts/super.ttf); }
 
 *{
-  font-family: 'Creato Display',Verdana, Geneva, Tahoma, sans-serif; 
+  font-family: Arial, Helvetica, sans-serif; 
 }
 
 .container{    
@@ -260,7 +256,7 @@ h1 {
 .btnUpload{
   margin-top: 15px;
   background-color:#c42326;
-	border-radius:10px;
+	border-radius: 10px;
   padding-right: 18px;
   padding-left: 18px;
   padding-top: 2px;
