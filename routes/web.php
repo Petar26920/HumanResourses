@@ -2,6 +2,13 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FileUploadController;
+
+//Added
+use Yajra\DataTables\DataTables;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +22,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 //Working
 //Dodao sam ovu sa middleware-om - Sladjan, route::get, isao sam i u middleware da promenim neke stvari 
 //Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
 Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
-// Route::get('/custom-register', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
-// Route::post('/custom-register', 'App\Http\Controllers\CustomRegistrationController@register');
+Route::get('users-data', function () {
+    $users = User::select('role','firstname', 'lastname', 'email')->get();
+
+    return DataTables::of($users)
+        ->addColumn('action', function ($user) {
+            return '<td>
+            <button type="button" class="btn crvena">Info</button>
+            <button type="button" class="btn siva">Edit</button>
+            <button type="button" class="btn crna">Delete</button>
+        </td>';
+        })
+        ->rawColumns(['action'])
+        ->toJson();
+});
 
 
 
 // Route::get('/userManagement', function () {
 //     return view('userManagmentPage');
 // });
+
 
 Route::get('/navLajout', function () {
     return view('proba');
@@ -49,14 +71,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/userManagmentPage', function () {
-//     return view('userManagmentPage');
-// });
 
 
-Route::get('/client', function () {
-    return view('client');
+
+Route::get('/client', [FileUploadController::class, 'index'])->name('client.index');
+Route::post('/client', [FileUploadController::class, 'upload'])->name('client.upload');
+
+
+Route::get('/proba', function () {
+    return view('proba');
 });
 
+
+Route::get('/login2', function () {
+    return view('login');
+});
+
+// Route::get('/login',function(){
+//     return view('login');
+// });
 require __DIR__ . '/auth.php';
 

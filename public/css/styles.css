@@ -35,8 +35,8 @@ nav{
     background-color: #c42326;
     border-top-right-radius: 5em;
     border-bottom-right-radius: 5em;
-    max-width: 10vw;
-    width:100%;
+    min-width: 5vw;
+    width:5vw;
 }
 .crvena{
     background-color: #c42326 ;
@@ -74,20 +74,54 @@ table>thead>tr>th:last-child{
   }
   .dataTables_filter{
     margin-bottom: 10px;
+    
   }
-  
-  #table_id{
-    border: 0px;
+
+  table#table_id tbody tr {
+    border: 0px solid transparent;
   }
-  #table_id tbody tr.even {
+
+  #table_id tbody tr.even{
     background-color: #f1f1f1;
     border-radius: 30px;
-    border: 10px solid black;
 }
 
 #table_id tbody tr.odd {
-    background-color:#fafafa;
+    background-color:#FFFF;
 }  
+
+.table-wrapper thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.dataTables_scrollBody{
+    min-height: 40vh;
+}
+
+/*Scrollbar*/
+
+.dataTables_scrollBody::-webkit-scrollbar {
+    width: 10px;  /* Adjust the width as needed */
+  }
+  
+  .dataTables_scrollBody::-webkit-scrollbar-track {
+    background-color: #f1f1f1;  /* Set the background color */
+  }
+  
+  /* Customize the scrollbar thumb */
+  .dataTables_scrollBody::-webkit-scrollbar-thumb {
+    background-color: #c42326;
+    border-radius: 10px;
+  }
+  
+  .dataTables_scrollBody::-webkit-scrollbar-thumb:hover {
+    background-color: #c42326;  /* Set the thumb color on hover */
+  }
+  /* End of scrollbar */
+  
+
+
 #addButton, .modal button{
     background-color: #c42326;
     color: #ffffff;
@@ -178,3 +212,27 @@ button[type=submit]{
     margin-right: 0;
     padding:0;
 }
+
+
+.navikone{
+    height: 25px;
+    width: 25px;
+}
+
+.btnlogout{
+    border: none;
+    background-color: transparent;
+    color: #c42326;
+    margin-top: 20px;
+    margin-left: 50%;
+    font-weight:500;
+}
+
+.btnlogout:hover{
+    background-color: lightcoral;
+    color:#a01315;
+}
+.iks:hover{
+    background-color: #c42326;
+}
+

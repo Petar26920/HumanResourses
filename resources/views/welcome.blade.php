@@ -12,8 +12,10 @@
 		
 		<div class="dugmepozicija">
 		<!-- <a href="/" class="button">Log in</a> -->
+
 		<!-- dodao sam da ide na login link -->
 		<button type="submit" class="button"><a href="{{route('login2')}}">Start</a></button>
+
 	</div>
 	</div>
 	<div class="line"></div>
