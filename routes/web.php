@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FileUploadController;
 
 //Added
 use Yajra\DataTables\DataTables;
@@ -61,8 +63,19 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/client', function () {
-    return view('client');
+
+
+Route::get('/client', [FileUploadController::class, 'index'])->name('client.index');
+Route::post('/client', [FileUploadController::class, 'upload'])->name('client.upload');
+
+
+Route::get('/proba', function () {
+    return view('proba');
+});
+
+
+Route::get('/login2', function () {
+    return view('login');
 });
 
 // Route::get('/login',function(){

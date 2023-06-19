@@ -212,6 +212,27 @@ button[type=submit]{
     margin-right: 0;
     padding:0;
 }
+
+
+.navikone{
+    height: 25px;
+    width: 25px;
+}
+
+.btnlogout{
+    border: none;
+    background-color: transparent;
+    color: #c42326;
+    margin-top: 20px;
+    margin-left: 50%;
+    font-weight:500;
+}
+
+.btnlogout:hover{
+    background-color: lightcoral;
+    color:#a01315;
+}
 .iks:hover{
     background-color: #c42326;
 }
+
