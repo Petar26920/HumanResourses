@@ -22,8 +22,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-//Rute za userManagment stranicu
-Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth','verified']);
+
+//Working
+//Dodao sam ovu sa middleware-om - Sladjan, route::get, isao sam i u middleware da promenim neke stvari 
+//Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
+Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
 Route::get('users-data', function () {
     $users = User::select('role','firstname', 'lastname', 'email')->get();
@@ -42,7 +46,10 @@ Route::get('users-data', function () {
 
 
 
-//
+// Route::get('/userManagement', function () {
+//     return view('userManagmentPage');
+// });
+
 
 Route::get('/navLajout', function () {
     return view('proba');
@@ -52,9 +59,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// ovo mi trebalo za login da namestim, ovo je trenutno resenje, premestio sam da radi sa login i logout dugme isto radi, jedino sto
+//  se loguje s aemailom al popravicu da bude sa username-om, bilo mi bitno da radi samo prvo - Sladjan
+Route::get('/login2', function () {
+    return view('login');
+})->name('login2');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -63,7 +63,12 @@
                                 <img src="images/logo-link.png" alt="Slika logo-a">
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button onclick="event.preventDefault();
+                                                this.closest('form').submit();" type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
+
+                                </form>
                             </div>
                         </div>
                         <h1 class="text-center" id="naslov">User managment</h1>

@@ -4,7 +4,7 @@
 
 <head>
 
-  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+  <link rel="stylesheet" href="{{ asset('/css/login.css') }}">
   <link href="https://fonts.cdnfonts.com/css/creato-display" rel="stylesheet">
 
 </head>
@@ -19,15 +19,19 @@
         </section>
       </div>
 
-      <div class="unospozicija">
+      <form method="POST" action="{{ route('login') }}" class="unospozicija">
+        @csrf
         <section class="usernameee">
-          <label for="username" class="username-label"><strong>Username</strong></label><br>
-          <input type="text" id="username" name="username" class="username-input input-box"><br>
+          <label for="username" class="username-label"><strong>Email</strong></label><br>
+          <input id="email" type="email" name="email" :value="old('email')" class="username-input" required autofocus autocomplete="username"><br>
         </section>
 
         <section>
           <br><br><label for="password" class="password-label"><strong>Password</strong></label><br>
-          <input type="password" id="password" name="password" class="password-input input-box">
+          <input id="password" 
+                            type="password"
+                            name="password"
+                            required autocomplete="current-password" class="password-input input-box">
         </section>
 
         <section class="zaboravljenasifra">
@@ -41,6 +45,7 @@
 
         <div class="line"></div>
         <div class="line2"></div>
+      </form>
 </body>
 
 </html>
