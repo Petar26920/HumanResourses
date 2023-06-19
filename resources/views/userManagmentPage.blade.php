@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    @csrf
     <div class="container-fluid p-0">
         <div class="d-flex bd-highlight">
             <!-- style="width: 4vw;" style sam dodao da bih mogao da promenim sirinu kolone sa leve i desne zato sto col-sm-1 nije bilo dovoljno malo a row zahteva da ima col -->
@@ -43,9 +44,9 @@
                         </li>
                     </ul>
                     <!-- <div class="d-flex align-items-end justify-content-center" style="margin-bottom: 20px;">
-
+                        
                         <button type="button" class="btn"><i class="bi bi-chat-left"></i></button>
-
+                        
                     </div> -->
                 </div>
             </nav>
@@ -75,84 +76,37 @@
                     <div class="p-2 w-100 bd-highlight">
                         <!-- Ovo treba da bude data tables al ne moze previse da se customizuje tako da sam morao rucno da bi izgledalo kao na slici -->
                         <div class="mt-3">
-                            <table id="table_id" class=" " class="table table-striped">
-                                <thead class="crvena ">
-                                    <tr>
-                                        <th class="text-center">Active</th>
-                                        <th class="text-center">Category</th>
-                                        <th class="text-center">Name</th>
-                                        <th class="text-center">Last name</th>
-                                        <th class="text-center">E-mail</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>Administrator</td>
-                                        <td>Nemanja</td>
-                                        <td>Peric</td>
-                                        <td>n.peric@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>User</td>
-                                        <td>Marko</td>
-                                        <td>Jovanovic</td>
-                                        <td>m.j@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>User</td>
-                                        <td>Nikola</td>
-                                        <td>Todic</td>
-                                        <td>to.m@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="text-center">
-                                        <td>Zeleno</td>
-                                        <td>Administrator</td>
-                                        <td>Maja</td>
-                                        <td>Tomic</td>
-                                        <td>tomi.m@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn crvena">Info</button>
-                                            <button type="button" class="btn siva">Edit</button>
-                                            <button type="button" class="btn crna">Delete</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-wrapper">
+
+                                <table id="table_id" class="table table-striped">
+                                    <thead class="crvena ">
+                                        <tr>
+                                            <th class="text-center">Active</th>
+                                            <th class="text-center">Category</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Last name</th>
+                                            <th class="text-center">E-mail</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <!-- MY BUTTON -->
                             <!-- Button trigger modal -->
                             <button type="button" id="addButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-
                                 Add new user
                             </button>
-
                             <!-- Modal -->
-
                             <div class="modal moj fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h6 class="modal-title" id="myModalLabel">Add new user</h6>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="font-size:12px; padding:0;">
-                                                <h3 aria-hidden="true" >&times;</h3>
+                                            <button type="button" class="close iks" data-bs-dismiss="modal" aria-label="Close" style="font-size:12px; padding:0; background-color:#c42326;">
+                                                <h3 aria-hidden="true">&times;</h3>
                                             </button>
                                         </div>
                                         <div class="modal-body">
@@ -162,48 +116,60 @@
                                                     <div class="col-m-12">
                                                         <div class="tile">
                                                             <div class="login show">
-                                                                <form>
+                                                                <form method="POST" action="{{ url('/userManagmentPage') }}">
+                                                                    @csrf
                                                                     <div class="formNewUser">
                                                                         <div class="row">
+                                                                            <!--First Name -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="fName">First name</label>
-                                                                                <input type="text" name="fName" class="form-control" required>
-                                                                            </div><!-- group -->
+                                                                                <x-input-label for="firstname" :value="__('First Name')" />
+                                                                                <x-text-input id="firstname" class="form-control" type="text" name="firstname" required />
+                                                                            </div>
+                                                                            <!--Last Name -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="lName">Last name</label>
-                                                                                <input type="text" name="lName" class="form-control" required>
+                                                                                <x-input-label for="lastname" :value="__('Last Name')" />
+                                                                                <x-text-input id="lastname" class="form-control" type="text" name="lastname" required />
                                                                             </div><!-- group -->
                                                                         </div>
                                                                         <div class="row">
+                                                                            <!-- Phonenum -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="phone">Phone number</label>
-                                                                                <input type="text" name="phone" class="form-control" required>
-                                                                            </div><!-- group -->
+                                                                                <x-input-label for="phonenum" :value="__('Phone num')" />
+
+                                                                                <x-text-input id="phonenum" class="form-control" type="text" name="phonenum" required />
+                                                                            </div>
+
+                                                                            <!-- Email Address -->
                                                                             <div class="form-group col-md-6">
-                                                                                <label for="Email">Email</label>
-                                                                                <input type="email" name="Email" class="form-control" required>
-                                                                            </div><!-- group -->
-                                                                        </div>
-                                                                        
-                                                                        <div class="form-group">
-                                                                            <label for="Role">Role</label>
-                                                                            <select name="Role" class="form-control" id="idRole">
-                                                                                <option value="admin">Admin <i class="bi bi-chevron-compact-down"></i></option>
-                                                                                <option value="user" selected>User</option>
-                                                                            </select>
-                                                                        </div><!-- group -->
-                                                                        
-                                                                        <div class="form-group">
-                                                                            <label for="password">Password</label>
-                                                                            <input type="password" name="password" class="form-control" required>
-                                                                        </div><!-- group -->
-                                                                        <!-- USER: Fname,Lname,Email,Role,PhoneNumber,Pass -->
-                                                                            <div class="row dugmici">
-                                                                                <div class="col-md-8"></div>
-                                                                                <button type="button" class="close cancel col-md-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                                                                                <button type="submit" name="addUser" class="btn btn-info btn-block col-md-2">Add</button>
+                                                                                <x-input-label for="email" :value="__('Email')" />
+                                                                                <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                                                                                <x-input-error :messages="$errors->get('email')" class="" />
                                                                             </div>
                                                                         </div>
+                                                                        <!-- Role -->
+                                                                        <div class="form-group">
+                                                                            <x-input-label for="role" :value="__('Role')" />
+                                                                            <select name="role" id="role" class="form-control">
+                                                                                <option value="A">Admin</option>
+                                                                                <option value="U">User</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- Password -->
+                                                                        <div class="form-group">
+                                                                            <x-input-label for="password" :value="__('Password')" />
+
+                                                                            <x-text-input id="password" class="form-control" type="password" name="password" pattern=".{8,}" required autocomplete="new-password" oninvalid="setCustomValidity('Password must be at least 8 characters long.')" />
+
+                                                                            <x-input-error :messages="$errors->get('password')" class="" />
+                                                                        </div>
+
+
+                                                                        <div class="row dugmici">
+                                                                            <div class="col-md-8"></div>
+                                                                            <button type="button" class="close cancel col-md-2" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                                            <button type="submit" name="addUser" class="btn btn-primary btn-block col-md-2">Add</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </form>
                                                             </div><!-- login -->
                                                         </div><!-- tile -->
@@ -212,18 +178,10 @@
                                             </div><!-- container -->
                                             </form>
                                         </div>
-                                        <!-- <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary">Save changes</button>
-</div> -->
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
-
                     </div>
                 </div>
             </main>
@@ -232,17 +190,65 @@
     <script>
         $(document).ready(function() {
             $('#table_id').DataTable({
+                scrollY: '200px', // Set the height of the vertical scrollbar area
+                scrollCollapse: true, // Enable collapse of table when scrolling
+                paging: true, // Enable pagination
+                pageLength: 10, // Set the number of rows per page
+
+
                 'columnDefs': [{
                     'targets': [0, 5],
                     'orderable': false, // set orderable false for selected columns
-                }]
+                }],
+                ajax: '/users-data',
+                columns: [{
+                        data: null,
+                        render: function() {
+                            return 'Zeleno';
+                        }
+                    },
+                    {
+                        data: 'role',
+                        render: function(data) {
+                            if (data === 'A') {
+                                return 'Admin';
+                            } else if (data === 'U') {
+                                return 'User';
+                            } else {
+                                return '';
+                            }
+                        }
+                    },
+                    {
+                        data: 'firstname'
+                    },
+                    {
+                        data: 'lastname'
+                    },
+                    {
+                        data: 'email'
+                    },
+                    {
+                        data: 'action',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                rowCallback: function(row, data, index) {
+                    $(row).addClass('text-center');
+                    if (index % 2 === 0) {
+                        $(row).addClass('even');
+                    } else {
+                        $(row).addClass('odd');
+                    }
+                }
+
+
             });
         });
-
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 
 </body>
 

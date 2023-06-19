@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FileUploadController;
 
+//Added
+use Yajra\DataTables\DataTables;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +21,28 @@ use App\Http\Controllers\FileUploadController;
 |
 */
 
-Route::get('/userManagement', function () {
-    return view('userManagmentPage');
+
+//Rute za userManagment stranicu
+Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth','verified']);
+Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
+Route::get('users-data', function () {
+    $users = User::select('role','firstname', 'lastname', 'email')->get();
+
+    return DataTables::of($users)
+        ->addColumn('action', function ($user) {
+            return '<td>
+            <button type="button" class="btn crvena">Info</button>
+            <button type="button" class="btn siva">Edit</button>
+            <button type="button" class="btn crna">Delete</button>
+        </td>';
+        })
+        ->rawColumns(['action'])
+        ->toJson();
 });
+
+
+
+//
 
 Route::get('/navLajout', function () {
     return view('proba');
@@ -38,10 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/userManagmentPage', function () {
-    return view('userManagmentPage');
-});
-
 
 
 
@@ -58,5 +78,8 @@ Route::get('/login2', function () {
     return view('login');
 });
 
+// Route::get('/login',function(){
+//     return view('login');
+// });
 require __DIR__ . '/auth.php';
 
