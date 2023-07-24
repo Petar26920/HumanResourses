@@ -88,6 +88,11 @@ Route::get('/', function () {
 });
 
 // ovo mi trebalo za login da namestim, ovo je trenutno resenje, premestio sam da radi sa login i logout dugme isto radi, jedino sto
+
+Route::get('/logout', function () {
+    return view('login2');
+})->name('logout');
+
 //  se loguje s aemailom al popravicu da bude sa username-om, bilo mi bitno da radi samo prvo - Sladjan
 Route::get('/login2', function () {
     return view('login');
