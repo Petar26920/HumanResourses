@@ -211,7 +211,7 @@
                 columns: [{
                         data: null,
                         render: function() {
-                            return '<img src="images/zeleno.png" width="24"></img>';
+                            return '<img src="images/zeleno.png" width="12"></img>';
                         }
                     },
                     {
