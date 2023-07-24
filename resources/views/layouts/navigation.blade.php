@@ -56,7 +56,12 @@
                             <img src="images/logo-link.png" height="70" alt="Slika logo-a" style="margin-top:5px">
                         </div>
                         <div class="col-md-2">
-                            <button type="button" class="btnlogout">Log out</button>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button onclick="event.preventDefault();
+                                            this.closest('form').submit();" type="button" class="btnlogout">Log out</button>
+
+                            </form>
                         </div>
                     </div>
                     @yield("main")

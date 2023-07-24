@@ -22,6 +22,15 @@
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
+        <div class="form-group">
+            <label for="birth_date">Birth Date</label>
+            <input type="date" id="birth_date" name="birth_date" value="{{ $user->birth_date }}" class="form-control">
+        </div>
+    
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" value="{{ $user->address }}" class="form-control">
+        </div>
 
         <div>
             <x-input-label for="email" :value="__('Email')" />

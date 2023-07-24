@@ -16,67 +16,40 @@ class FileUploadController extends Controller
 
     public function upload(Request $request)
     {
-        $emailInput = $request->input('email-label');
-
-        $users = User::all();
-
         $request->validate([
             'file' => 'required|array',
             'file.*' => 'file|mimes:pdf,docx,doc|max:15360',
         ]);
+
+        $authenticatedUser = auth()->user(); // Get the authenticated user model
 
         if ($request->hasFile('file')) {
             $files = $request->file('file');
             $uploadedFiles = [];
 
             foreach ($files as $file) {
-               
+                if ($file->isValid()) {
+                    $extension = $file->getClientOriginalExtension();
 
-                    
+                    // Construct the file name using the authenticated user's ID and the extension
+                    $fileName = $authenticatedUser->id . '.' . $extension;
 
-                    foreach ($users as $user) {
-                        $email = $user->email;
-                    
-                        if ($file->isValid()) {
-                            $originalName = $file->getClientOriginalName();
-                            $extension = $file->getClientOriginalExtension();
-        
-                            $fileName = $user->id ."." .$extension;
-        
-                            // Move the file to the desired location with the new name
-                            $file->storeAs('uploads', $fileName);
-                            $absolutePath = public_path('uploads/' . $fileName);
-                            
-                            $uploadedFiles[] = $fileName;
-                            $user->CV = "AA";
-                            $user->CV = $user->id;
-                            $user->save();
-                            break; // Exit the loop if found matching email
-                        
-                    }
+                    // Move the file to the desired location with the new name
+                    $file->storeAs('uploads', $fileName);
+                    $absolutePath = public_path('uploads/' . $fileName);
+
+                    // Update the authenticated user's CV
+                    $authenticatedUser->CV = $fileName;
+                    $uploadedFiles[] = $fileName;
                 }
             }
 
             if (!empty($uploadedFiles)) {
-                return redirect()->back()->with('success', 'Files uploaded successfully.');
+                $authenticatedUser->save(); // Save the updated CV in the database
+                return redirect()->back()->with('success', 'File uploaded successfully.');
             }
         }
 
-        return redirect()->back()->with('error', 'No files uploaded.');
-    }
-
-    private function generateUniqueFileName($originalName, $extension)
-    {
-        $baseName = Str::slug(pathinfo($originalName, PATHINFO_FILENAME));
-        $fileName = $baseName . '.' . $extension;
-        $counter = 1;
-
-        // Check if a file with the same name already exists
-        while (Storage::exists('uploads/' . $fileName)) {
-            $fileName = $baseName . '-' . $counter . '.' . $extension;
-            $counter++;
-        }
-
-        return $fileName;
+        return redirect()->back()->with('error', 'No file uploaded.');
     }
 }

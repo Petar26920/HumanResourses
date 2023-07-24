@@ -87,8 +87,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// ovo mi trebalo za login da namestim, ovo je trenutno resenje, premestio sam da radi sa login i logout dugme isto radi, jedino sto
-//  se loguje s aemailom al popravicu da bude sa username-om, bilo mi bitno da radi samo prvo - Sladjan
+
 Route::get('/login2', function () {
     return view('login');
 })->name('login2');

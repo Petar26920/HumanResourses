@@ -46,18 +46,18 @@
 
                         <p class="radnikpodaci">Last name: <label style="font-weight: normal;font-size: medium; margin-left:3px;">{{Auth::user()->lastname}}</label></p>
 
-                        <p class="radnikpodaci">Birth date: <label style="font-weight: normal;font-size: medium; margin-left:3px;">NEMAMO DATUM RODJENJA U BAZI</label></p>
+                        <p class="radnikpodaci">Birth date: <label style="font-weight: normal;font-size: medium; margin-left:3px;">23.05.2001</label></p>
 
                         <p class="radnikpodaci">
                             E-Mail: <input type="hidden" id="email-input" name="email-label" value="todicnikola@gmail.com">
 
-                                    <label style="font-weight:normal;">{{Auth::user()->firstname}}</label>
+                                    <label style="font-weight:normal;">{{Auth::user()->email}}</label>
 
                         </p>
 
                         <p class="radnikpodaci">Phone number: <label style="font-weight: normal;font-size: medium; margin-left:3px;">{{Auth::user()->phonenum}}</label></p>
 
-                        <p class="radnikpodaci">Address: <label style="font-weight: normal;font-size: medium; margin-left:3px;">NEAMOM OVO U BAZI</label></p>
+                        <p class="radnikpodaci">Address: <label style="font-weight: normal;font-size: medium; margin-left:3px;">Visnjiceva 10</label></p>
                     </div>
 
                     <div class="okvirCV">
