@@ -28,7 +28,7 @@
                 <div class="okvirslika">
                     <!-- Elementi slike -->
                     <div class="pic">
-                        <img src="Images/proba.png" style="max-width: 250px; max-height: 250px;">
+                        <img src="Images/klient.jpg" style="max-width: 250px; max-height: 250px; ">
                     </div>
                     <div class="fullrectangle1"></div>
                     <div class="fullrectangle2"></div>
@@ -50,7 +50,7 @@
 
                         <p class="radnikpodaci">
                             E-Mail: <input type="hidden" id="email-input" name="email-label" value="todicnikola@gmail.com">
-                                    <label>todicnikola@gmail.com</label>
+                                    <label style="font-weight: normal;">todicnikola@gmail.com</label>
                         </p>
 
                         <p class="radnikpodaci">Phone number: <label style="font-weight: normal;font-size: medium; margin-left:3px;">+381 61 234 5678</label></p>
@@ -143,7 +143,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="line2"></div>
     </form>
 
     <script src="{{ asset('js/progressbar.js') }}"></script>
