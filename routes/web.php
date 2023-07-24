@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
 //Working
 //Dodao sam ovu sa middleware-om - Sladjan, route::get, isao sam i u middleware da promenim neke stvari 
 //Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm');
-Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth', 'verified', 'client_role'])->name('dashboard');
 
 Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
 Route::get('users-data', function () {
@@ -74,7 +74,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('/client', [FileUploadController::class, 'index'])->name('client.index');
+Route::get('/client', [FileUploadController::class, 'index'])->name('client.index')->middleware('admin_role');
 Route::post('/client', [FileUploadController::class, 'upload'])->name('client.upload');
 
 
