@@ -51,7 +51,7 @@
                         <p class="radnikpodaci">
                             E-Mail: <input type="hidden" id="email-input" name="email-label" value="todicnikola@gmail.com">
 
-                                    <label>{{Auth::user()->firstname}}</label>
+                                    <label style="font-weight:normal;">{{Auth::user()->firstname}}</label>
 
                         </p>
 
