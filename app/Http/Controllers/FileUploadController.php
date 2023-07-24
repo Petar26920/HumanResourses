@@ -30,29 +30,29 @@ class FileUploadController extends Controller
             $uploadedFiles = [];
 
             foreach ($files as $file) {
-                if ($file->isValid()) {
-                    $originalName = $file->getClientOriginalName();
-                    $extension = $file->getClientOriginalExtension();
-
-                    $fileName = $this->generateUniqueFileName($originalName, $extension);
-
-                    // Move the file to the desired location with the new name
-                    $file->storeAs('uploads', $fileName);
-                    $absolutePath = public_path('uploads/' . $fileName);
-                    
-                    $uploadedFiles[] = $fileName;
+               
 
                     
 
                     foreach ($users as $user) {
                         $email = $user->email;
                     
-                        if ($email == "todicnikola@gmail.com") {
+                        if ($file->isValid()) {
+                            $originalName = $file->getClientOriginalName();
+                            $extension = $file->getClientOriginalExtension();
+        
+                            $fileName = $user->id ."." .$extension;
+        
+                            // Move the file to the desired location with the new name
+                            $file->storeAs('uploads', $fileName);
+                            $absolutePath = public_path('uploads/' . $fileName);
+                            
+                            $uploadedFiles[] = $fileName;
                             $user->CV = "AA";
-                            $user->CV = $absolutePath;
+                            $user->CV = $user->id;
                             $user->save();
                             break; // Exit the loop if found matching email
-                        }
+                        
                     }
                 }
             }
