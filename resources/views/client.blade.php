@@ -28,7 +28,7 @@
                 <div class="okvirslika">
                     <!-- Elementi slike -->
                     <div class="pic">
-                        <img src="Images/proba.png" style="max-width: 250px; max-height: 250px;">
+                        <img src="Images/klient.jpg" style="max-width: 250px; max-height: 250px; ">
                     </div>
                     <div class="fullrectangle1"></div>
                     <div class="fullrectangle2"></div>
@@ -38,24 +38,26 @@
 
                 <div class="okvirinfo">
                     <!-- Elementi informacija -->
-                    <h1>Nikola Todić</h1>
+                    <h1>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h1>
 
                     <div class="okvirpodaci">
                         <!-- Podaci ↓ -->
-                        <p class="radnikpodaci" style="margin-top: 20px;">First name: <label style="font-weight: normal;font-size: medium; margin-left:3px;">Nikola</label></p>
+                        <p class="radnikpodaci" style="margin-top: 20px;">First name: <label style="font-weight: normal;font-size: medium; margin-left:3px;">{{Auth::user()->firstname}}</label></p>
 
-                        <p class="radnikpodaci">Last name: <label style="font-weight: normal;font-size: medium; margin-left:3px;">Todić</label></p>
+                        <p class="radnikpodaci">Last name: <label style="font-weight: normal;font-size: medium; margin-left:3px;">{{Auth::user()->lastname}}</label></p>
 
-                        <p class="radnikpodaci">Birth date: <label style="font-weight: normal;font-size: medium; margin-left:3px;">25.11.1998.</label></p>
+                        <p class="radnikpodaci">Birth date: <label style="font-weight: normal;font-size: medium; margin-left:3px;">NEMAMO DATUM RODJENJA U BAZI</label></p>
 
                         <p class="radnikpodaci">
                             E-Mail: <input type="hidden" id="email-input" name="email-label" value="todicnikola@gmail.com">
-                                    <label>todicnikola@gmail.com</label>
+
+                                    <label style="font-weight:normal;">{{Auth::user()->firstname}}</label>
+
                         </p>
 
-                        <p class="radnikpodaci">Phone number: <label style="font-weight: normal;font-size: medium; margin-left:3px;">+381 61 234 5678</label></p>
+                        <p class="radnikpodaci">Phone number: <label style="font-weight: normal;font-size: medium; margin-left:3px;">{{Auth::user()->phonenum}}</label></p>
 
-                        <p class="radnikpodaci">Address: <label style="font-weight: normal;font-size: medium; margin-left:3px;">Beograd 11000</label></p>
+                        <p class="radnikpodaci">Address: <label style="font-weight: normal;font-size: medium; margin-left:3px;">NEAMOM OVO U BAZI</label></p>
                     </div>
 
                     <div class="okvirCV">
@@ -143,7 +145,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="line2"></div>
     </form>
 
     <script src="{{ asset('js/progressbar.js') }}"></script>

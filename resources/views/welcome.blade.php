@@ -14,7 +14,7 @@
 		<!-- <a href="/" class="button">Log in</a> -->
 
 		<!-- dodao sam da ide na login link -->
-		<button type="submit" class="button"><a href="{{route('login2')}}">Start</a></button>
+		<button type="submit" class="button"><a href="{{url('login2')}}"style="	text-decoration: none;">Start</a></button>
 
 	</div>
 	</div>

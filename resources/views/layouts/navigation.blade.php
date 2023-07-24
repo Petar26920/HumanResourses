@@ -53,7 +53,7 @@
                 <div class="ps-5 w-100 bd-highlight">
                     <div class="row">
                         <div class="col-md-10">
-                            <img src="images/logo-link.png" alt="Slika logo-a" style="width: 180px; margin-top:5px">
+                            <img src="images/logo-link.png" height="70" alt="Slika logo-a" style="margin-top:5px">
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btnlogout">Log out</button>

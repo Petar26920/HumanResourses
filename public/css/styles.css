@@ -52,13 +52,13 @@ nav{
     color: #ffffff;
 }
 table>thead>tr>th:first-child{
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 table>thead>tr>th:last-child{
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #table_id>tbody>tr{
@@ -79,15 +79,19 @@ table>thead>tr>th:last-child{
 
   table#table_id tbody tr {
     border: 0px solid transparent;
-  }
+    
+}
+
+
 
   #table_id tbody tr.even{
     background-color: #f1f1f1;
-    border-radius: 30px;
+    
 }
 
 #table_id tbody tr.odd {
     background-color:#FFFF;
+    
 }  
 
 .table-wrapper thead {
@@ -97,6 +101,38 @@ table>thead>tr>th:last-child{
 }
 .dataTables_scrollBody{
     min-height: 40vh;
+}
+/*Added*/
+
+td:first-child {
+    border-left-style:solid;
+    border-top-left-radius:20px;
+    border-bottom-left-radius:20px;
+}
+ td:nth-child(5) {
+    border-right-style:solid;
+    border-bottom-right-radius:20px;
+    border-top-right-radius:20px;
+ }
+ td:nth-child(6) {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+
+/* Override the background color for the last column */
+#table_id>tbody>tr.even>td:last-child,
+#table_id>tbody>tr.odd>td:last-child {
+    background-color: #FFFFFF; /* Set the desired background color */
+}
+
+/* Apply striped background color manually */
+#table_id>tbody>tr:nth-of-type(odd) {
+    background-color: #f1f1f1; /* Set the even row background color */
+}
+
+#table_id>tbody>tr:nth-of-type(even) {
+    background-color: #FFFFFF; /* Set the odd row background color */
 }
 
 /*Scrollbar*/
@@ -143,7 +179,8 @@ li button{
 
 /* Modal stil */
 .modal{
-    margin-top: 2vh;
+    margin-left:-10vh;
+    margin-top: 5vh;
     overflow: hidden;
     box-sizing: border-box;
     
@@ -232,7 +269,57 @@ button[type=submit]{
     background-color: lightcoral;
     color:#a01315;
 }
+#logoutContainer .btn.btn-danger {
+    border-color: transparent;
+}
 .iks:hover{
     background-color: #c42326;
 }
 
+/* Modal za info user */
+.user-info-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.user-info-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.user-info-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info-modal-close {
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #c42326;
+    padding: 4px;
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.user-info-modal-body {
+    padding-top: 20px;
+}
+
+.user-info-modal-body p {
+    margin: 0;
+    margin-bottom: 10px;
+}

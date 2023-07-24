@@ -5,11 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FileUploadController;
 
+
 //Added
 use Yajra\DataTables\DataTables;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FileController;
 
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Storage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,22 +33,46 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@showRegistrationForm')->middleware(['auth', 'verified', 'client_role'])->name('dashboard');
 
 Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
-Route::get('users-data', function () {
-    $users = User::select('role','firstname', 'lastname', 'email')->get();
 
+Route::get('storage/app/uploads/{user_id}', [FileController::class, 'download'])->name('file.download');
+
+
+Route::post('/userManagmentPage', 'App\Http\Controllers\CustomRegistrationController@register');
+//Download button
+Route::get('storage/app/uploads/{user_id}', [FileController::class, 'download'])->name('file.download');
+//Delete button in datatable
+Route::post('users/{user_id}/delete', [UserController::class, 'destroy'])->name('user.delete');
+
+Route::get('users-data', function () {
+    $users = User::select('id', 'role', 'firstname', 'lastname', 'email')->get();
+    
     return DataTables::of($users)
         ->addColumn('action', function ($user) {
+            $userFile = 'uploads/'.$user->id.'.pdf';
+ 
+            // JavaScript confirmation function
+            $deleteConfirmation = "return confirm('Are you sure you want to delete this user?');";
+            
             return '<td>
-            <button type="button" class="btn crvena">Info</button>
-            <button type="button" class="btn siva">Edit</button>
-            <button type="button" class="btn crna">Delete</button>
-        </td>';
+                <button type="button" class="btn crvena">Info</button>
+                <button type="button" class="btn siva">Edit</button>
+                <button type="button" class="btn crna" data-userid="'.$user->id.'" onclick="confirmDelete(this)">Delete</button>
+ 
+            </td>';
+        })->addColumn('download', function ($user) {
+            $userFile = 'uploads/'.$user->id.'.pdf';
+            $downloadButton = Storage::exists($userFile)
+                ? '<a href="'.route('file.download', ['user_id' => $user->id]).'" style="background-color:#f1f1f1;" class="btn"><img width="24" src="images/navbarIkone/download.png" alt="Ikona dugmeta"></a>'
+                : '';
+
+            return $downloadButton;
         })
-        ->rawColumns(['action'])
+        ->rawColumns(['action','download'])
         ->toJson();
 });
 
 
+//  
 
 // Route::get('/userManagement', function () {
 //     return view('userManagmentPage');

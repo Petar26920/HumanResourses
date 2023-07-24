@@ -60,13 +60,13 @@
                     <div class=" w-100 bd-highlight">
                         <div class="row">
                             <div class="col-md-10 ">
-                                <img src="images/logo-link.png" alt="Slika logo-a">
+                                <img src="images/logo-link.png" height="50" alt="Slika logo-a">
                             </div>
                             <div class="col-md-2">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button onclick="event.preventDefault();
-                                                this.closest('form').submit();" type="button" class="mt-3 btn btn-outline-danger border-danger border border-3 text-danger">Log out</button>
+                                                this.closest('form').submit();" type="button" class="btnlogout">Log out</button>
 
                                 </form>
                             </div>
@@ -83,7 +83,7 @@
                         <div class="mt-3">
                             <div class="table-wrapper">
 
-                                <table id="table_id" class="table table-striped">
+                                <table id="table_id" class="table">
                                     <thead class="crvena ">
                                         <tr>
                                             <th class="text-center">Active</th>
@@ -92,6 +92,8 @@
                                             <th class="text-center">Last name</th>
                                             <th class="text-center">E-mail</th>
                                             <th class="text-center">Action</th>
+                                            
+                                            <th style="width:80px" class="text-center"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -209,7 +211,7 @@
                 columns: [{
                         data: null,
                         render: function() {
-                            return 'Zeleno';
+                            return '<img src="images/zeleno.png" width="12"></img>';
                         }
                     },
                     {
@@ -237,21 +239,41 @@
                         data: 'action',
                         orderable: false,
                         searchable: false
-                    }
+                    },{ data: 'download', orderable: false, searchable: false }, // Add the 'Download' column
+        
+        
                 ],
+                
                 rowCallback: function(row, data, index) {
                     $(row).addClass('text-center');
                     if (index % 2 === 0) {
                         $(row).addClass('even');
                     } else {
-                        $(row).addClass('odd');
+                        $(row).addClass('odd');   
                     }
                 }
+                
 
 
             });
         });
     </script>
+    <script>
+    function confirmDelete(button) {
+        const userId = button.getAttribute('data-userid');
+        const deleteConfirmation = confirm('Are you sure you want to delete this user?');
+
+        if (deleteConfirmation) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '{{ url('users') }}/' + userId + '/delete';
+            form.innerHTML = '{{ csrf_field() }}';
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
