@@ -52,13 +52,13 @@ nav{
     color: #ffffff;
 }
 table>thead>tr>th:first-child{
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 table>thead>tr>th:last-child{
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 #table_id>tbody>tr{
@@ -179,7 +179,8 @@ li button{
 
 /* Modal stil */
 .modal{
-    margin-top: 2vh;
+    margin-left:-10vh;
+    margin-top: 5vh;
     overflow: hidden;
     box-sizing: border-box;
     

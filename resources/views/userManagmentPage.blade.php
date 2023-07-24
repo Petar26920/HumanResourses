@@ -60,13 +60,13 @@
                     <div class=" w-100 bd-highlight">
                         <div class="row">
                             <div class="col-md-10 ">
-                                <img src="images/logo-link.png" height="70" alt="Slika logo-a">
+                                <img src="images/logo-link.png" height="50" alt="Slika logo-a">
                             </div>
                             <div class="col-md-2">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button onclick="event.preventDefault();
-                                                this.closest('form').submit();" type="button" class="mt-3 btn border-3 text-danger">Log out</button>
+                                                this.closest('form').submit();" type="button" class="btnlogout">Log out</button>
 
                                 </form>
                             </div>
