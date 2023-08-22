@@ -29,9 +29,15 @@ php artisan serve
 Projekat u trenutnom stanju ima:
 - Poglede za landing stranu, login stranu, admin stranu, korisnicku stranu
 - Ispravno rutiranje i autentifikaciju (breeze)
-- Upload CV-a
+- Upload i download CV fajla
 - Admin strana ima pretraživu, interaktivnu tabelu svih korisnika
 - Modal/dijalog za dodavanje novih korisnika na admin strani
 - Migracije za bazu podataka
 
-Potencijalna unapređenja (treba lista sa prezentacije, medjutim nemam prezentaciju / ne mogu je skinuti sa WA grupe, moze bilo ko od vas kome radi)
+Potencijalna unapređenja:
+- Funkcionalnost navigacije admin panela
+- Podešavanje admin naloga
+- Export i import podataka iz xls baze
+- Slanje mail-a za prihvatanje / odbijanje korisnika (integracija sa mail serverom)
+- Lična podešavanja (datum rođenja, adresa)
+- Mogućnost korisnika za pregled svojih fajlova
